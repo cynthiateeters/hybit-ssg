@@ -2,18 +2,8 @@
 <html lang="en">
 <!--
     ╔══════════════════════════════════════════════════════════════════════════╗
-    ║                  HAP's Learning Lab Template - Hub Page                  ║
-    ║                                                                          ║
-    ║  CUSTOMIZE THIS FILE to create your own HAP Learning Lab!               ║
-    ║                                                                          ║
-    ║  Key sections to update:                                                ║
-    ║  1. Meta tags (lines 24-52): Update title, description, and og:image    ║
-    ║  2. Header content (lines 72-96): Update learning lab theme             ║
-    ║  3. About section (lines 104-162): Customize learning approach text     ║
-    ║  4. Station cards (lines 172-219): Link to your 6 station files         ║
-    ║                                                                          ║
-    ║  TIP: Search for "[PLACEHOLDER]" throughout this file                   ║
-    ║       to find sections that need your attention.                        ║
+    ║           HAP's Learning Lab: Static Site Generation with Eleventy       ║
+    ║                                Hub Page                                   ║
     ╚══════════════════════════════════════════════════════════════════════════╝
 -->
 
@@ -21,8 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- [PLACEHOLDER] Update title with your learning lab topic -->
-    <title>HAP's Learning Lab - [YOUR TOPIC] Hub</title>
+    <title>HAP's Learning Lab: Static Site Generation with Eleventy</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="16x16"
@@ -34,28 +23,25 @@
     <link rel="icon" type="image/png" sizes="192x192"
         href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
 
-    <!-- Performance: speed up first image request -->
+    <!-- Performance: preconnect to Cloudinary -->
     <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
 
-    <!-- Preload critical fonts for faster LCP -->
+    <!-- Preload critical fonts -->
     <link rel="preload" href="fonts/Nunito/Nunito-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.woff2" as="font" type="font/woff2"
-        crossorigin>
+    <link rel="preload" href="fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
 
-    <!-- [PLACEHOLDER] Update meta description with your learning lab's focus -->
     <meta name="description"
-        content="HAP's Learning Lab: Join HAP (HyBit A. ProtoBot) on his journey learning [YOUR TOPIC]. Six interactive stations covering [KEY CONCEPTS].">
+        content="Join HAP as he discovers how static site generators turn Markdown files into lightning-fast websites—no database required! Learn JAMstack, compare SSGs, master Eleventy, and deploy your own blog.">
 
-    <!-- [PLACEHOLDER] Update Open Graph tags for social sharing -->
-    <meta property="og:title" content="HAP's Learning Lab - [YOUR TOPIC] Hub">
+    <meta property="og:title" content="HAP's Learning Lab: Static Site Generation with Eleventy">
     <meta property="og:description"
-        content="Six learning stations where HAP, Prof. Teeters' apprentice, shares his journey learning [YOUR TOPIC].">
+        content="Six learning stations where HAP, Prof. Teeters' apprentice, shares his journey from 'blogs need databases' to deploying a customized Eleventy blog on Netlify.">
     <meta property="og:type" content="website">
     <meta property="og:image"
         content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- (Optional) Basic CSP for static hosting; adjust if you add external scripts/styles -->
+    <!-- CSP for static hosting -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self';
                    img-src 'self' https://res.cloudinary.com data:;
                    script-src 'self' 'unsafe-inline';
@@ -71,154 +57,124 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Header with HyBit -->
+    <!-- Header with HAP -->
     <header class="header">
         <div class="header-content">
             <div class="hybit-welcome">
                 <div class="hybit-avatar">
                     <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-laptop_xiewar.jpg"
-                        alt="HAP (HyBit A. ProtoBot) studying on his laptop" width="200" height="200" decoding="async"
-                        fetchpriority="high">
+                        alt="HAP at his laptop ready to teach you about static sites"
+                        width="200" height="200" decoding="async" fetchpriority="high">
                 </div>
                 <div>
                     <h1>HAP's Learning Lab</h1>
-                    <!-- [PLACEHOLDER] Update subtitle with your topic -->
-                    <p class="subtitle">[YOUR TOPIC] Learning Stations</p>
+                    <p class="subtitle">Static Site Generation with Eleventy</p>
                 </div>
             </div>
             <div class="intro-box">
                 <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_240,c_limit/v1759495998/hap-waving_dgzacg.jpg"
                     srcset="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_120,c_limit/v1759495998/hap-waving_dgzacg.jpg 1x,
                             https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_240,c_limit/v1759495998/hap-waving_dgzacg.jpg 2x"
-                    alt="HAP waving hello" width="120" height="120" class="intro-hap-image" decoding="async">
+                    alt="HAP waving hello" width="120" height="120"
+                    class="intro-hap-image" decoding="async">
                 <div class="intro-text">
-                    <!-- [PLACEHOLDER] Update HAP's introduction with your topic -->
-                    <p><strong>Hello! I'm HyBit A. ProtoBot — but you can call me HAP!</strong> <br>I'm Prof. Teeters'
-                        apprentice, and I've been studying all about [YOUR TOPIC]. Want to explore what
-                        I've discovered so far?</p>
-                    <p class="mt-1">These six learning stations are where I practice what Prof. Teeters teaches me. I
-                        started with [INITIAL STRUGGLE] and learned [KEY ACHIEVEMENT]. Each station shares my
-                        journey from confusion to confidence! [TOPIC EMOJI]</p>
+                    <p><strong>Hey everyone! I'm HAP, and I just built my first blog—without WordPress, without PHP, without a database!</strong></p>
+                    <p>When Prof. Teeters said "Let's build a blog with Markdown files," I thought she was joking. How can a blog work without a database? Where does the content come from? How do users see different posts?</p>
+                    <p class="mt-1">Turns out, static site generators like Eleventy change EVERYTHING about how websites work. Instead of generating pages when users visit (slow!), we generate pages ONCE during the build and serve them from a CDN (fast!).</p>
+                    <p class="mt-1">Through these six stations, I'll share my journey from "blogs need databases" to "actually, Markdown files work great!" I'll show you exactly how I started from eleventy-base-blog (a template by Zach Leatherman) and customized it into my own HAP-themed blog.</p>
+                    <p class="mt-1">Ready to build your own static site? Let's go! 🟠</p>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Content Container -->
+    <!-- Main Content -->
     <main id="main-content">
-
         <!-- About This Lab -->
         <section class="content-section">
             <div class="topic-section">
-                <h2>About HyBit's Learning Lab</h2>
+                <h2>About HAP's Learning Lab</h2>
 
                 <div class="analysis-grid">
                     <div class="analysis-point">
-                        <!-- [PLACEHOLDER] Update with what students will learn in YOUR topic -->
-                        <h3>[EMOJI] What You'll Learn</h3>
-                        <p>This lab explores [YOUR TOPIC], from basic concepts to professional
-                            implementation. You'll gain hands-on experience with:</p>
-                        <ul>
-                            <li>[KEY CONCEPT 1]</li>
-                            <li>[KEY CONCEPT 2]</li>
-                            <li>[KEY CONCEPT 3]</li>
-                            <li>[KEY CONCEPT 4]</li>
-                            <li>[KEY CONCEPT 5]</li>
-                        </ul>
+                        <h3>🔬 What I Learned</h3>
+                        <p>I learned that static site generators pre-render HTML at build time instead of generating it on every request. This makes sites faster, more secure, and cheaper to host—often FREE!</p>
+                        <p class="mt-1">I also learned that "zero-config" doesn't mean "no configuration possible." It means sensible defaults that just work. Eleventy let me build a working blog before I even created a config file!</p>
                     </div>
 
                     <div class="analysis-point">
-                        <h3>🎓 Learning Approach</h3>
-                        <p>Each station combines theory with practice:</p>
-                        <ul>
-                            <li><strong>Real examples:</strong> Actual code samples, measured results</li>
-                            <li><strong>Visual comparisons:</strong> See the differences yourself</li>
-                            <li><strong>Code snippets:</strong> Copy-paste ready implementations</li>
-                            <li><strong>HyBit's insights:</strong> Practical tips from field experience</li>
-                        </ul>
+                        <h3>🎯 How I Practiced</h3>
+                        <p>I cloned eleventy-base-blog from GitHub and customized it step by step. First I replaced the sample posts with my own content. Then I added HAP colors and fonts. Then I created custom shortcodes for my character images.</p>
+                        <p class="mt-1">Each change taught me something new about how Eleventy works. By the time I finished, I understood the whole system—not from reading docs, but from actually building!</p>
                     </div>
-                </div>
 
-                <div class="hap-note-callout">
-                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
-                        alt="HAP looking confused while studying a map" width="150" height="150" class="hap-note-image"
-                        decoding="async" loading="lazy">
-                    <div>
-                        <div class="interactive-demo mt-1">
-                            <h3>[EMOJI] HAP's Philosophy</h3>
-                            <!-- [PLACEHOLDER] Update with your topic's practical applications -->
-                            <p>Learning web development doesn't have to be dry! Each learning station uses real-world
-                                scenarios, visual demonstrations, and hands-on exploration. Whether you're [USE CASE 1],
-                                [USE CASE 2], or [USE CASE 3], these stations give you practical skills you can apply
-                                immediately.</p>
-                        </div>
-                        <div class="hap-note-content mt-1">
-                            <h3>🤔 HAP's Advice To Fellow Learners</h3>
-                            <!-- [PLACEHOLDER] Customize with challenges specific to your topic -->
-                            <p>Some technical concepts can seem really confusing at first (like [CHALLENGING CONCEPT 1]
-                                or [CHALLENGING CONCEPT 2]!), but that's totally normal. It might mean we go slower with
-                                the material, or we might go to other sources for help. Then, almost certainly, we might
-                                need to experience using that new technique ourselves.</p>
-                            <p class="mt-1">That's how learning works — even for robots!</p>
-                        </div>
+                    <div class="analysis-point">
+                        <h3>🎨 My Philosophy</h3>
+                        <p>Start from a working template, not a blank file. Understand what each piece does before changing it. Make one change at a time so you know what broke if something goes wrong.</p>
+                        <p class="mt-1">And here's the big one Prof. Teeters taught me: sometimes removing features you don't need is the best solution. Simpler is almost always better!</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>🤔 My Advice</h3>
+                        <p>Don't try to learn everything at once! Focus on getting a blog deployed first, even if it looks generic. Then customize it piece by piece.</p>
+                        <p class="mt-1">By the time you're done, you'll understand Eleventy deeply—not from reading documentation (though that helps!), but from actually using it to build something real that you can share with the world.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Learning Stations Grid -->
         <div class="content-container">
-            <!-- Learning Stations Grid -->
             <section class="content-section">
                 <h2 class="section-heading-centered">Learning Stations</h2>
                 <nav aria-label="Learning stations">
                     <div class="overview-grid">
 
-                        <!-- [PLACEHOLDER] Update each station card with your content -->
                         <!-- Station 1 -->
                         <a href="stations/station1.html" class="insight-card station-card-link">
-                            <h3><span class="insight-icon">[EMOJI]</span> Station 1: [STATION 1 TITLE]</h3>
-                            <p><strong>Focus:</strong> [Brief focus description]</p>
-                            <p class="station-description">[2-3 sentence description of what students learn in this station]</p>
+                            <h3><span class="insight-icon">🏗️</span> Station 1: JAMstack & SSG</h3>
+                            <p><strong>Focus:</strong> Build-time vs runtime</p>
+                            <p class="station-description">I thought blogs needed servers and databases. Prof. Teeters showed me a different way—pre-render everything at build time and serve static HTML from a CDN!</p>
                             <p class="station-cta">→ Visit Station 1</p>
                         </a>
 
                         <!-- Station 2 -->
                         <a href="stations/station2.html" class="insight-card station-card-link">
-                            <h3><span class="insight-icon">[EMOJI]</span> Station 2: [STATION 2 TITLE]</h3>
-                            <p><strong>Focus:</strong> [Brief focus description]</p>
-                            <p class="station-description">[2-3 sentence description of what students learn in this station]</p>
+                            <h3><span class="insight-icon">🗺️</span> Station 2: SSG Landscape</h3>
+                            <p><strong>Focus:</strong> Choosing your tool</p>
+                            <p class="station-description">Fifty static site generators?! How do I choose? I'll show you how Prof. Teeters helped me narrow it down based on what I actually know—JavaScript!</p>
                             <p class="station-cta">→ Visit Station 2</p>
                         </a>
 
                         <!-- Station 3 -->
                         <a href="stations/station3.html" class="insight-card station-card-link">
-                            <h3><span class="insight-icon">[EMOJI]</span> Station 3: [STATION 3 TITLE]</h3>
-                            <p><strong>Focus:</strong> [Brief focus description]</p>
-                            <p class="station-description">[2-3 sentence description of what students learn in this station]</p>
+                            <h3><span class="insight-icon">⚡</span> Station 3: Eleventy Fundamentals</h3>
+                            <p><strong>Focus:</strong> Zero-config magic</p>
+                            <p class="station-description">My first Eleventy build took 0.02 seconds. I thought it was broken—nothing that fast could actually work! Spoiler: it worked perfectly.</p>
                             <p class="station-cta">→ Visit Station 3</p>
                         </a>
 
                         <!-- Station 4 -->
                         <a href="stations/station4.html" class="insight-card station-card-link">
-                            <h3><span class="insight-icon">[EMOJI]</span> Station 4: [STATION 4 TITLE]</h3>
-                            <p><strong>Focus:</strong> [Brief focus description]</p>
-                            <p class="station-description">[2-3 sentence description of what students learn in this station]</p>
+                            <h3><span class="insight-icon">📋</span> Station 4: Starting from a Template</h3>
+                            <p><strong>Focus:</strong> Learning from others</p>
+                            <p class="station-description">Prof. Teeters said "Don't start from scratch—learn from eleventy-base-blog." I cloned it and felt overwhelmed. So many files! Here's how I figured it out.</p>
                             <p class="station-cta">→ Visit Station 4</p>
                         </a>
 
                         <!-- Station 5 -->
                         <a href="stations/station5.html" class="insight-card station-card-link">
-                            <h3><span class="insight-icon">[EMOJI]</span> Station 5: [STATION 5 TITLE]</h3>
-                            <p><strong>Focus:</strong> [Brief focus description]</p>
-                            <p class="station-description">[2-3 sentence description of what students learn in this station]</p>
+                            <h3><span class="insight-icon">🎨</span> Station 5: Customization & Deployment</h3>
+                            <p><strong>Focus:</strong> Making it yours</p>
+                            <p class="station-description">I wanted HAP colors, HAP fonts, HAP images. Here's how I transformed a generic template into my own blog—and deployed it to the internet in 5 minutes!</p>
                             <p class="station-cta">→ Visit Station 5</p>
                         </a>
 
                         <!-- Station 6 -->
                         <a href="stations/station6.html" class="insight-card station-card-link">
-                            <h3><span class="insight-icon">[EMOJI]</span> Station 6: [STATION 6 TITLE]</h3>
-                            <p><strong>Focus:</strong> [Brief focus description]</p>
-                            <p class="station-description">[2-3 sentence description of what students learn in this station]</p>
+                            <h3><span class="insight-icon">🤖</span> Station 6: AI Assistance</h3>
+                            <p><strong>Focus:</strong> Learning with AI</p>
+                            <p class="station-description">I used AI tools while building my blog. But there's a difference between AI as a learning partner and AI doing your work. Here's what I discovered.</p>
                             <p class="station-cta">→ Visit Station 6</p>
                         </a>
 
@@ -226,31 +182,27 @@
                 </nav>
             </section>
         </div>
-
     </main>
 
     <!-- Footer -->
     <footer class="footer">
         <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
-        <!-- [PLACEHOLDER] Customize footer message with your topic -->
         <p class="footer-reminder">
-            Ready to learn together? Pick any learning station that looks interesting — I'll be there to help! 🔬 — HAP
+            Thanks for exploring static sites with me! If you want to see my actual blog, visit HAP's Learning Lab Blog at hap-blog.netlify.app. Remember: your content belongs in Git, not a database! 🟠 — HAP
         </p>
         <div class="footer-copyright">
             <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
-                alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80"
-                height="80" decoding="async" loading="lazy">
+                alt="HAP the apprentice learner with his study book and tools"
+                class="footer-hybit" width="80" height="80" decoding="async" loading="lazy">
             <div>
                 <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
-                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are
-                    proprietary educational innovations.</p>
-                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
-                    Visual elements created with AI assistance.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters. Visual elements created with AI assistance.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Performance Easter Egg -->
+    <!-- Easter Egg System -->
     <script src="js/easter-egg.js"></script>
 
     <!--
@@ -260,5 +212,4 @@
     Visual elements created with AI assistance.
     -->
 </body>
-
 </html>

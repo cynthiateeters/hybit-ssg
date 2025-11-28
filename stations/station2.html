@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    ╔══════════════════════════════════════════════════════════════════════════╗
+    ║      HAP's Learning Lab: Static Site Generation with Eleventy            ║
+    ║              Station 2: The Static Site Generator Landscape              ║
+    ╚══════════════════════════════════════════════════════════════════════════╝
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SSG Landscape | HAP's Learning Lab: Static Site Generation</title>
+
+    <meta name="description"
+        content="Compare Jekyll, Hugo, Gatsby, and Eleventy to find the right static site generator for your skills. HAP shares how he chose Eleventy based on what he already knew.">
+
+    <meta property="og:title" content="SSG Landscape | HAP's Learning Lab">
+    <meta property="og:description"
+        content="Compare Jekyll, Hugo, Gatsby, and Eleventy to find the right static site generator for your skills.">
+    <meta property="og:type" content="website">
+    <meta property="og:image"
+        content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1763230817/hap-scientist_safwtg.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+
+    <!-- Performance: preconnect to Cloudinary -->
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="../fonts/Nunito/Nunito-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.woff2" as="font"
+        type="font/woff2" crossorigin>
+
+    <!-- CSP for static hosting -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+                   img-src 'self' https://res.cloudinary.com data:;
+                   script-src 'self' 'unsafe-inline';
+                   style-src 'self' 'unsafe-inline';
+                   font-src 'self';
+                   connect-src 'self' ws://localhost:* ws://127.0.0.1:*;
+                   base-uri 'self';
+                   form-action 'self';">
+
+    <!-- HAP Design System -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Accessibility skip link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header with HAP -->
+    <header class="header">
+        <div class="header-content">
+            <div class="hybit-welcome">
+                <div class="hybit-avatar">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1763230817/hap-scientist_safwtg.jpg"
+                        alt="HAP researching different static site generators" width="200" height="200" decoding="async"
+                        fetchpriority="high">
+                </div>
+                <div>
+                    <h1>Station 2: The Static Site Generator Landscape</h1>
+                    <p class="subtitle">Fifty Options?! How Do I Choose?</p>
+                </div>
+            </div>
+            <div class="intro-box">
+                <div class="intro-box-content">
+                    <p>Prof. Teeters pulled up a website showing a list of static site generators. I started
+                        scrolling... and
+                        scrolling... and scrolling. There were a lot of them!</p>
+                    <p class="mt-1">"Pick one," she said with a smile.</p>
+                    <p class="mt-1">I panicked! They all looked similar. Jekyll, Hugo, Gatsby, Eleventy, Astro, Next.js,
+                        Nuxt, SvelteKit... the list went on forever. How was I supposed to know which one was right?</p>
+                    <p class="mt-1">"What programming language do you know best?" she asked.</p>
+                    <p class="mt-1">"Well, it will be JavaScript." I said. "As a web developer I'll need JavaScript and
+                        I
+                        plan to learn it with you!"</p>
+                    <p class="mt-1">"Then you've already narrowed it down significantly. Now let's look at complexity
+                        versus
+                        flexibility..."</p>
+                    <p class="mt-1">That one question changed everything. Instead of comparing fifty tools, I was
+                        comparing
+                        maybe five. Here's how Prof. Teeters helped me think through the decision... 🟠</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Navigation -->
+    <nav aria-label="Page navigation" class="page-navigation top-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+        <div class="page-position" data-page="2">Station 2 of 6</div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="content-container">
+
+        <!-- Section 1: What You'll Learn -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">What You'll Learn at This Station</h2>
+
+            <!-- HAP's discovery story -->
+            <div class="intro-box">
+                <p><strong>HAP's Discovery:</strong> I used to think picking a tool was about finding "the best one."
+                    Prof. Teeters taught me that's the wrong question. The right question is: "Which tool fits MY skills
+                    and MY project?" Here are the three insights that helped me choose: 🤯</p>
+            </div>
+
+            <!-- 3 Insight cards -->
+            <div class="overview-grid mt-2">
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🗣️</span> Language Matters</h3>
+                    <p class="stat-large">Your Language</p>
+                    <p>Jekyll uses Ruby, Hugo uses Go, Eleventy uses JavaScript. Pick one that matches YOUR
+                        skills—because when something breaks (and it will!), you'll need to understand the error
+                        messages and debug the code.</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3><span class="insight-icon">📊</span> The Complexity Spectrum</h3>
+                    <p class="stat-large stat-teal">Sweet Spot</p>
+                    <p>Simple tools (Jekyll) are easy to start but limited. Powerful tools (Gatsby, Next.js) can do
+                        anything but require more learning. Eleventy sits in a sweet spot: flexible enough to grow with
+                        you, simple enough to start today.</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3><span class="insight-icon">⚡</span> Zero-Config Philosophy</h3>
+                    <p class="stat-large stat-brown">Just Works</p>
+                    <p>Eleventy works out of the box with sensible defaults. No webpack setup, no build configuration,
+                        no "starter template required." Just write content and run the build command. That's why I chose
+                        it!</p>
+                </div>
+            </div>
+
+            <!-- HAP's Confession -->
+            <div class="hap-note-callout">
+                <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_120,c_limit/v1763230414/hap-broke-things_qtbum4.jpg"
+                    alt="HAP surrounded by tangled code with an 'oops' expression" width="120" height="120"
+                    class="hap-note-image" decoding="async" loading="lazy">
+                <div class="hap-note-content">
+                    <h3>HAP's Confession:</h3>
+                    <ul>
+                        <li>I almost picked Hugo because "fastest builds!" sounded impressive. Then I tried reading the
+                            Go template documentation and had no idea what was happening. Fast builds don't help if you
+                            can't customize anything!</li>
+                        <li>I spent two whole days trying to set up Gatsby before realizing I didn't need React for a
+                            simple blog. Grace Hopper appeared and asked, "Why are you making it so complicated?" She
+                            had a point. 😳</li>
+                        <li>I thought "zero-config" meant "no configuration possible." Turns out it means "sensible
+                            defaults with optional configuration." You CAN customize everything—you just don't HAVE to
+                            customize everything to get started.</li>
+                        <li>I judged SSGs by how pretty their marketing websites looked instead of actually trying them.
+                            Prof. Teeters reminded me that a nice website doesn't mean a nice developer experience.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: The Major Players -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>The Major Players</h2>
+
+                <p class="mb-2">There are dozens of static site generators, but a handful dominate the landscape. Here
+                    are the ones I researched most seriously, along with what I learned about each:</p>
+
+                <!-- SSG Comparison Cards (CSS Grid) -->
+                <div class="overview-grid">
+                    <!-- Jekyll -->
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">💎</span> Jekyll</h3>
+                        <p><strong>Language:</strong> Ruby</p>
+                        <p><strong>Best for:</strong> Simple blogs, GitHub Pages</p>
+                        <p class="mt-1"><strong>Pros:</strong> Well-documented, huge community, GitHub Pages default</p>
+                        <p><strong>Cons:</strong> Slow builds for large sites, Ruby environment setup can be tricky</p>
+                        <p class="mt-1"><em>HAP's take:</em> "Great if you already know Ruby. I don't, so debugging
+                            would be a struggle."</p>
+                    </div>
+
+                    <!-- Hugo -->
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">🚀</span> Hugo</h3>
+                        <p><strong>Language:</strong> Go</p>
+                        <p><strong>Best for:</strong> Large sites needing fast builds</p>
+                        <p class="mt-1"><strong>Pros:</strong> Blazingly fast builds (like, milliseconds fast), single
+                            binary install</p>
+                        <p><strong>Cons:</strong> Go template syntax is confusing, steeper learning curve</p>
+                        <p class="mt-1"><em>HAP's take:</em> "The speed is amazing, but I couldn't understand the
+                            templates. That's a dealbreaker."</p>
+                    </div>
+
+                    <!-- Eleventy -->
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">🎈</span> Eleventy</h3>
+                        <p><strong>Language:</strong> JavaScript</p>
+                        <p><strong>Best for:</strong> Flexible projects, JavaScript developers</p>
+                        <p class="mt-1"><strong>Pros:</strong> Zero-config start, supports 11+ template languages, fast
+                            builds</p>
+                        <p><strong>Cons:</strong> Smaller community than Jekyll, documentation can be scattered</p>
+                        <p class="mt-1"><em>HAP's take:</em> "I know JavaScript! The templates made sense immediately.
+                            This is the one."</p>
+                    </div>
+
+                    <!-- Gatsby / Next.js -->
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">⚛️</span> Gatsby / Next.js</h3>
+                        <p><strong>Language:</strong> JavaScript (React)</p>
+                        <p><strong>Best for:</strong> Complex web applications, React developers</p>
+                        <p class="mt-1"><strong>Pros:</strong> Powerful data layer, component-based, huge ecosystem</p>
+                        <p><strong>Cons:</strong> Complex setup, requires React knowledge, slower builds</p>
+                        <p class="mt-1"><em>HAP's take:</em> "Way more power than I need for a blog. Maybe someday for a
+                            bigger project!"</p>
+                    </div>
+
+                    <!-- Astro -->
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">🧑‍🚀</span> Astro</h3>
+                        <p><strong>Language:</strong> JavaScript</p>
+                        <p><strong>Best for:</strong> Content-heavy sites, "islands" architecture</p>
+                        <p class="mt-1"><strong>Pros:</strong> Ships zero JS by default, supports multiple frameworks
+                        </p>
+                        <p><strong>Cons:</strong> Newer, smaller ecosystem than Eleventy</p>
+                        <p class="mt-1"><em>HAP's take:</em> "Really interesting! But I wanted to start with something
+                            more established first."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Decision Framework -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>The Decision Framework</h2>
+
+                <div class="hap-note-callout mb-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+                        alt="HAP looking confused while studying a map" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <p>Prof. Teeters gave me a simple framework for making the decision. Instead of comparing every
+                            feature, she had me ask five questions:</p>
+                    </div>
+                </div>
+
+                <!-- Decision Questions -->
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>1. What language do I want to use?</h3>
+                        <p><strong>HAP's answer:</strong> "JavaScript!"</p>
+                        <p><strong>Result:</strong> Eliminates Jekyll (Ruby), Hugo (Go)</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>2. How complex is my project?</h3>
+                        <p><strong>HAP's answer:</strong> "A blog with some custom styling."</p>
+                        <p><strong>Result:</strong> Don't need Gatsby/Next.js power</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>3. Do I need React components?</h3>
+                        <p><strong>HAP's answer:</strong> "Nope. I love plain HTML and CSS so that works fine for me."
+                        </p>
+                        <p><strong>Result:</strong> Gatsby/Next.js are overkill</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>4. How important is build speed?</h3>
+                        <p><strong>HAP's answer:</strong> "My blog will have, like, a handful of posts. Build speed
+                            doesn't matter."</p>
+                        <p><strong>Result:</strong> Hugo's speed advantage isn't relevant</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>5. Do I want zero configuration to start?</h3>
+                        <p><strong>HAP's answer:</strong> "YES. I want to see something working before I customize."</p>
+                        <p><strong>Result:</strong> Eleventy wins!</p>
+                    </div>
+                </div>
+
+                <!-- Prof. Teeters wisdom -->
+                <div class="hap-note-callout mt-2">
+                    <div class="hap-note-content">
+                        <h3>🟠 Prof. Teeters' Wisdom:</h3>
+                        <p>"Don't choose a tool just because it's trendy or because someone online says it's the best.
+                            Choose the one that fits your skills and your project right now. And with Eleventy, all your
+                            main content lives in easy-to-move Markdown files, so you can switch to another system later
+                            without losing all of your hard work."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Why I Chose Eleventy -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Why I Chose Eleventy</h2>
+
+                <div class="hap-note-callout mb-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_120,c_limit/v1763230522/hap-thumbs-up_s4si0j.jpg"
+                        alt="HAP giving a confident thumbs up" width="120" height="120" class="hap-note-image"
+                        decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <p>After all that research, Eleventy was the clear winner for me. Here's exactly why:</p>
+                    </div>
+                </div>
+
+                <ol class="mb-2">
+                    <li class="mb-1">
+                        <strong>I'm learning JavaScript</strong> — Prof. Teeters says every web developer needs it, so
+                        I'm practicing bit by bit. The great part is that Eleventy doesn't force me to be an expert
+                        right away. I can build real sites using Markdown and templates while slowly understanding more
+                        of the JavaScript behind the scenes. As I learn, I can customize more and more.
+                    </li>
+                    <li class="mb-1">
+                        <strong>Zero-config actually works</strong> — For fun, I ran <code>npx @11ty/eleventy</code> on
+                        a folder with one Markdown <span>index.md</span> file and got a working HTML page. No
+                        setup
+                        required!
+                    </li>
+                    <li class="mb-1">
+                        <strong>Template flexibility</strong> — Eleventy supports Nunjucks, Liquid, Markdown,
+                        JavaScript,
+                        and more. I started with Markdown, because I know it already, and I'll be learning Nunjucks
+                        (more on that later!).
+                    </li>
+                    <li class="mb-1">
+                        <strong>The community is helpful</strong> — When I got stuck, I found answers on the Eleventy
+                        Discord and GitHub discussions. People were patient with my beginner questions.
+                    </li>
+                    <li class="mb-1">
+                        <strong>It grows with me</strong> — I started simple, but I've already added custom shortcodes
+                        and filters. Eleventy can handle way more complexity when I'm ready for it.
+                    </li>
+                </ol>
+
+                <div class="hap-note-callout">
+                    <div class="hap-note-content">
+                        <h3>🟠 HAP's Conclusion:</h3>
+                        <p>Now that I'm becoming an accomplished web developer who can make great web pages, Eleventy
+                            gives me an easy path to build full multi-page sites. I can use its tools with the HTML and
+                            CSS skills I already have, and that's enough to create something impressive right away. As I
+                            grow, I can add more features whenever I'm ready. I call that a big win for new developers
+                            like me!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Quick Reference -->
+        <section class="content-section">
+            <div class="tips-container">
+                <h2 class="section-heading-centered">🎓 SSG Comparison Quick Reference</h2>
+
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>Jekyll (Ruby)</h3>
+                        <p><strong>Learning curve:</strong> Easy | <strong>Best for:</strong> GitHub Pages, simple blogs
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>Hugo (Go)</h3>
+                        <p><strong>Learning curve:</strong> Steep | <strong>Best for:</strong> Large sites, fast builds
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>Eleventy (JavaScript)</h3>
+                        <p><strong>Learning curve:</strong> Moderate | <strong>Best for:</strong> Flexible projects, JS
+                            developers</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <h3>Gatsby / Next.js (React)</h3>
+                        <p><strong>Learning curve:</strong> Steep | <strong>Best for:</strong> Complex apps, React
+                            developers</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <div>
+                        <h3>Astro (JavaScript)</h3>
+                        <p><strong>Learning curve:</strong> Moderate | <strong>Best for:</strong> Content-heavy sites,
+                            islands architecture</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+        <a href="station1.html" class="nav-link prev-link">← Previous: Station 1 - JAMstack & SSG</a>
+        <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+        <a href="station3.html" class="nav-link next-link">Next: Station 3 - Eleventy Fundamentals →</a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
+        <p class="footer-reminder">
+            Remember: The "best" tool is the one that fits YOUR skills and YOUR project. For me, that's Eleventy! 🟠 —
+            HAP
+        </p>
+        <div class="footer-copyright">
+            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80"
+                height="80" decoding="async" loading="lazy">
+            <div>
+                <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are
+                    proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+                    Visual elements created with AI assistance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Easter Egg System -->
+    <script src="../js/easter-egg.js"></script>
+
+    <!--
+    HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+    HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+    Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+    Visual elements created with AI assistance.
+    -->
+</body>
+
+</html>

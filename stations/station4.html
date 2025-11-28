@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    ╔══════════════════════════════════════════════════════════════════════════╗
+    ║           HAP's Learning Lab: Static Site Generation with Eleventy       ║
+    ║              Station 4: Starting from eleventy-base-blog                 ║
+    ╚══════════════════════════════════════════════════════════════════════════╝
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Starting from a Template | HAP's Learning Lab: Static Site Generation</title>
+
+    <meta name="description"
+        content="Learn how to copy eleventy-base-blog and understand the starter template before customizing. HAP walks through every file and explains what to change first.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+
+    <!-- Performance: preconnect to Cloudinary -->
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="../fonts/Nunito/Nunito-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
+
+    <meta property="og:title" content="Starting from a Template | HAP's Learning Lab">
+    <meta property="og:description"
+        content="Learn how to copy eleventy-base-blog and understand the starter template before customizing.">
+    <meta property="og:type" content="website">
+    <meta property="og:image"
+        content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-waving_dgzacg.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- CSP for static hosting -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+                   img-src 'self' https://res.cloudinary.com data:;
+                   script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+                   style-src 'self' 'unsafe-inline';
+                   font-src 'self';
+                   connect-src 'self' ws://localhost:* ws://127.0.0.1:*;
+                   base-uri 'self';
+                   form-action 'self';">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/prism-hap-theme.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header with HAP -->
+    <header class="header">
+        <div class="header-content">
+            <div class="hybit-welcome">
+                <div class="hybit-avatar">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-waving_dgzacg.jpg"
+                        alt="HAP waving hello while exploring the eleventy-base-blog template"
+                        width="200" height="200" decoding="async" fetchpriority="high">
+                </div>
+                <div>
+                    <h1>HAP's Learning Lab: Starting from eleventy-base-blog</h1>
+                    <p class="subtitle">Standing on the Shoulders of Giants</p>
+                </div>
+            </div>
+            <div class="intro-box">
+                <div class="intro-box-content">
+                    <p><strong>Welcome to Station 4!</strong> Prof. Teeters said "Don't start from scratch—learn from eleventy-base-blog."</p>
+                    <p class="mt-1">"But isn't that just copying someone else's work?" I asked, feeling a little uncomfortable.</p>
+                    <p class="mt-1">"It's learning," she said with a warm smile. "Zach Leatherman created this template specifically for people to use and learn from. He's the creator of Eleventy itself! Make your own copy of it, understand how it works, then make it yours. Just give credit where credit is due."</p>
+                    <p class="mt-1">The eleventy-base-blog is a GitHub template. So I hit the <code>Use this template</code> button and it made a repo with the name I selected. That is so cool! Then I cloned my new repo to my machine. When I opened the repo in VS Code, I felt overwhelmed. There were so many files! <code>_data</code>, <code>_includes</code>, <code>content</code>, <code>css</code>... Where do I even start? Which files do I change? Which ones should I leave alone?</p>
+                    <p class="mt-1">Prof. Teeters walked me through it one file at a time. Let me share what I learned, because once you understand the structure, it all makes sense... 🟠</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top navigation -->
+    <nav aria-label="Page navigation" class="page-navigation top-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+        <div class="page-position" data-page="4">Station 4 of 6</div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="content-container">
+
+        <!-- Section 1: What You'll Learn -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">What You'll Learn at This Station</h2>
+
+            <div class="intro-box">
+                <p><strong>HAP's Discovery:</strong> Starting from a template taught me more than any tutorial. I got to see real code written by an expert, explore how the pieces connect, and learn best practices by example. Here are the three insights that made the biggest difference:</p>
+            </div>
+
+            <div class="overview-grid mt-2">
+                <div class="insight-card">
+                    <h3><span class="insight-icon">📖</span> Templates Teach</h3>
+                    <p>eleventy-base-blog shows Eleventy best practices in action. The sample posts demonstrate front matter, the layouts show template inheritance, and the config file reveals how plugins work together. Reading real code taught me more than documentation!</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🔬</span> One Change at a Time</h3>
+                    <p>Prof. Teeters taught me: Start by exploring, then replace sample posts with YOUR posts, then customize styles, then add features. Change one thing, test it, then change the next. That way you always know what broke!</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🤝</span> Attribution Matters</h3>
+                    <p>I added a note in my README crediting Zach Leatherman and eleventy-base-blog. Open source works because people share generously. When you acknowledge the people who helped you, you strengthen the whole community!</p>
+                </div>
+            </div>
+
+            <!-- HAP's Confession -->
+            <div class="hap-note-callout mt-2">
+                <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1763230414/hap-broke-things_qtbum4.jpg"
+                    alt="HAP surrounded by tangled code with an 'oops' expression"
+                    width="150" height="150" class="hap-note-image" decoding="async" loading="lazy">
+                <div class="hap-note-content">
+                    <h3>HAP's Confession:</h3>
+                    <ul>
+                        <li>I spent 30 minutes looking for a "settings" file to change the site title. Prof. Teeters showed me it's in <code>_data/metadata.js</code>. Not "config"—data! That naming convention confused me at first.</li>
+                        <li>I deleted all five sample posts before studying them. Big mistake! I had to clone again because those posts showed me how to use front matter, links, code blocks, and tags. Now I keep them until I understand each feature.</li>
+                        <li>I edited <code>css/index.css</code> and wondered why my changes looked weird. Turns out I was adding styles at the wrong place in the cascade. Prof. Teeters was at a meeting, so I asked Grace Hopper. She reminded me, in her precise way, that CSS order matters—put new styles at the end. 😳</li>
+                        <li>I forgot to run <code>npm install</code> after cloning and wondered why <code>npm start</code> didn't work. The error message said "[11ty] Eleventy Fatal Error (CLI):" and I panicked. Prof. Teeters calmly said, "Did you install the dependencies?" Oops.</li>
+                        <li>I changed the site title, the colors, AND the layout all at once. When something broke, I had no idea which change caused it. Prof. Teeters' rule: "One change, one test. Always."</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: What You Get When You Copy -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>What You Get When You Copy</h2>
+                <p class="mb-2">When you copy eleventy-base-blog, you get a complete working blog. Not a skeleton—a real site with sample posts, working navigation, an RSS feed, and even dark mode support! Here's the full inventory of what's included:</p>
+
+                <h3 class="mt-2">📝 Sample Blog Posts (5 total)</h3>
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>firstpost.md</h3>
+                        <p>Shows code blocks with syntax highlighting using Prism.js</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>secondpost.md</h3>
+                        <p>Demonstrates linking between posts</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>thirdpost.md</h3>
+                        <p>Multiple code blocks, multiple tags</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>fourthpost/</h3>
+                        <p>A post with a local image (possum.png!)</p>
+                    </div>
+                </div>
+
+                <p class="mt-1"><strong>Plus:</strong> <code>fifthpost.md</code> — A draft post (hidden in production, visible in dev)</p>
+
+                <h3 class="mt-2">📄 Pages</h3>
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>index.njk</h3>
+                        <p>Home page showing latest 3 posts</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>blog.njk</h3>
+                        <p>Archive page with all posts</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>about.md</h3>
+                        <p>Placeholder about page — customize this!</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>tags.njk</h3>
+                        <p>Lists all tags used across posts</p>
+                    </div>
+                </div>
+
+                <h3 class="mt-2">🤖 Auto-Generated Files</h3>
+                <ul>
+                    <li>RSS/Atom feed at <code>/feed/feed.xml</code></li>
+                    <li>Sitemap at <code>/sitemap.xml</code></li>
+                    <li>Individual pages for each tag</li>
+                </ul>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_120,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                        alt="HAP starting to understand the file structure"
+                        width="120" height="120" class="hap-note-image" decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Realization:</h3>
+                        <p>I was amazed how much came pre-built! The RSS feed just... works. (OK, I don't know what an RSS feed is, but it works.) The sitemap updates automatically when I add posts. The tag pages create themselves. Prof. Teeters said, "This is why we start from templates—you get years of best practices for free." And when I have time, I'll find out what an RSS feed is 😇.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The File Structure Explained -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>The File Structure Explained</h2>
+
+                <div class="hap-note-callout">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+                        alt="HAP looking confused at all the project folders"
+                        width="150" height="150" class="hap-note-image" decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Initial Confusion:</h3>
+                        <p>At first, all those folders with underscores confused me. Why <code>_data</code> and <code>_includes</code>? Prof. Teeters explained that the underscore tells Eleventy "this is a special folder, not content to publish." Using the underscore is common in a lot of frameworks and now you know why.</p>
+                    </div>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">eleventy-base-blog File Structure:</div>
+                    <pre><code class="language-text">eleventy-base-blog/
+├── _config/
+│   └── filters.js          # Custom date formatting (readableDate, htmlDateString)
+├── _data/
+│   └── metadata.js         # Site title, author, URL — CHANGE THIS FIRST!
+├── _includes/
+│   ├── layouts/
+│   │   ├── base.njk        # The HTML skeleton (header, nav, footer)
+│   │   ├── post.njk        # Blog post wrapper (extends base)
+│   │   └── home.njk        # Home page wrapper (extends base)
+│   └── postslist.njk       # Reusable "list of posts" component
+├── content/
+│   ├── blog/               # Your blog posts go here!
+│   │   ├── firstpost.md    # Sample posts to study then delete
+│   │   └── blog.11tydata.js # Sets defaults for all posts in this folder
+│   ├── index.njk           # Home page content
+│   ├── blog.njk            # Archive page content
+│   └── about.md            # About page — customize this!
+├── css/
+│   └── index.css           # All the styles (298 lines)
+├── public/                 # Static files copied as-is
+├── eleventy.config.js      # The brain — plugins, filters, settings
+└── package.json            # Dependencies and npm scripts</code></pre>
+                </div>
+
+                <h3 class="mt-2">🔑 Key Files to Know</h3>
+
+                <h4>_data/metadata.js — CHANGE THIS FIRST!</h4>
+                <p>This file contains your site's identity. Here's what the original looks like:</p>
+
+                <div class="prompt-box mt-1">
+                    <div class="prompt-label">Actual code from eleventy-base-blog:</div>
+                    <pre><code class="language-javascript">export default {
+    title: "Eleventy Base Blog v9",
+    url: "https://example.com/",
+    language: "en",
+    description: "I am writing about my experiences as a naval navel-gazer.",
+    author: {
+        name: "Your Name Here",
+        email: "youremailaddress@example.com",
+        url: "https://example.com/about-me/"
+    }
+}</code></pre>
+                    <p class="code-comment mt-1">Change every value here to make the site yours! The title appears in the browser tab, the description shows in search results, and the author info appears in the RSS feed.</p>
+                </div>
+
+                <h4 class="mt-2">content/blog/blog.11tydata.js — Directory Data</h4>
+                <p>This tiny file sets defaults for ALL posts in the blog folder:</p>
+
+                <div class="prompt-box mt-1">
+                    <div class="prompt-label">Actual code from eleventy-base-blog:</div>
+                    <pre><code class="language-javascript">export default {
+    tags: [
+        "posts"
+    ],
+    "layout": "layouts/post.njk",
+};</code></pre>
+                    <p class="code-comment mt-1">Because of this file, I don't need to add <code>tags: posts</code> or <code>layout: layouts/post.njk</code> to every single blog post. The directory data cascade handles it automatically! This is the data cascade in action from Station 3.</p>
+                </div>
+
+                <h4 class="mt-2">Sample Post Front Matter</h4>
+                <p>Here's what a sample post looks like:</p>
+
+                <div class="prompt-box mt-1">
+                    <div class="prompt-label">From content/blog/firstpost.md:</div>
+                    <pre><code class="language-markdown">---
+title: This is my first post.
+description: This is a post on My Blog about agile frameworks.
+date: 2018-05-01
+tags: another tag
+---
+Leverage agile frameworks to provide a robust synopsis...</code></pre>
+                    <p class="code-comment mt-1">Notice how simple the front matter is! The <code>layout</code> and <code>tags: posts</code> come from the directory data file. I only add what's unique to this specific post.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: What's Pre-Configured -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>What's Pre-Configured: The Plugins</h2>
+
+                <div class="hap-note-callout">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1763230331/hap-brain-explodes_wu0or8.jpg"
+                        alt="HAP amazed by all the pre-configured plugins"
+                        width="150" height="150" class="hap-note-image" decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Mind = Blown:</h3>
+                        <p>I opened <code>eleventy.config.js</code> expecting simple settings. Instead I found eight plugins already configured! Each one adds a major feature. Here's what you get without writing any code:</p>
+                    </div>
+                </div>
+
+                <div class="overview-grid mt-2">
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">🎨</span> Syntax Highlighting</h3>
+                        <p><code>@11ty/eleventy-plugin-syntaxhighlight</code></p>
+                        <p class="mt-1">Prism.js integration for code blocks. Supports dozens of languages. Already styled with the Okaidia theme.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">🖼️</span> Image Optimization</h3>
+                        <p><code>@11ty/eleventy-img</code></p>
+                        <p class="mt-1">Automatic AVIF and WebP conversion. Responsive srcset generation. Lazy loading built-in.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">📡</span> RSS Feed</h3>
+                        <p><code>@11ty/eleventy-plugin-rss</code></p>
+                        <p class="mt-1">Atom feed at <code>/feed/feed.xml</code>. Automatically includes your latest posts. Ready for feed readers.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">🧭</span> Navigation</h3>
+                        <p><code>@11ty/eleventy-navigation</code></p>
+                        <p class="mt-1">Content-driven menu system. Active page highlighting. Ordered by <code>eleventyNavigation.order</code>.</p>
+                    </div>
+                </div>
+
+                <p class="mt-2"><strong>Plus four more:</strong> Heading IDs (<code>IdAttributePlugin</code>), HTML Base paths (<code>HtmlBasePlugin</code>), Input Path transforms, and CSS/JS bundling. More to look up when I get a chance.</p>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">From eleventy.config.js (plugin imports):</div>
+                    <pre><code class="language-javascript">import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from "@11ty/eleventy";
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import pluginNavigation from "@11ty/eleventy-navigation";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";</code></pre>
+                    <p class="code-comment mt-1">When I realized all this was already set up, I understood why Prof. Teeters insisted on starting from a template. I would have spent WEEKS figuring out image optimization alone. Instead, I get to focus on my content and design!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: The Attribution Story -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>The Attribution Story</h2>
+
+                <div class="hap-note-callout">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_120,c_limit/v1763230356/hap-lectures_fjnxdj.jpg"
+                        alt="HAP teaching about attribution and open source"
+                        width="120" height="120" class="hap-note-image" decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Important Lesson:</h3>
+                        <p>Prof. Teeters was clear about one thing: "When you use someone's work, credit them." Here's the attribution I added to my README:</p>
+                    </div>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Attribution for your README:</div>
+                    <pre><code class="language-markdown">### Attribution
+
+This Eleventy site was originally built from [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog) by Zach Leatherman ([@zachleat](https://github.com/zachleat)): "A starter repository showing how to build a blog with the Eleventy site generator (using the v3.0 release)."</code></pre>
+                </div>
+
+                <div class="warning-box mt-2">
+                    <h3>🟠 Why Attribution Matters:</h3>
+                    <p>Prof. Teeters explained: "Open source isn't just about free code—it's about community. Zach spent years building Eleventy and this template. When you credit him, you're not just being polite. You're helping other people discover his work. You're showing that the open source ecosystem works because people share generously and acknowledge each other. That is also why you should always check for the <code>LICENSE</code> and <code>COPYRIGHT</code> if they exist and honor what they say."</p>
+                    <p class="mt-1">That really stuck with me. Now I always check for attribution guidelines when I use open source projects.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Quick Reference -->
+        <section class="content-section">
+            <div class="tips-container">
+                <h2 class="section-heading-centered">🎓 eleventy-base-blog Quick Reference</h2>
+
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>_data/metadata.js</h3>
+                        <p>Site title, author, URL — <strong>Change this FIRST!</strong></p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>content/blog/*.md</h3>
+                        <p>Your blog posts — Add your own content here</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>content/about.md</h3>
+                        <p>About page — Personalize it with your story</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <h3>css/index.css</h3>
+                        <p>All styles — Customize colors and fonts (add at the end!)</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <div>
+                        <h3>_includes/layouts/</h3>
+                        <p>Page templates — Only change after you understand them</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">6</div>
+                    <div>
+                        <h3>eleventy.config.js</h3>
+                        <p>Plugins & config — When adding new features</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: npm Commands -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Essential npm Commands</h2>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Commands you'll use every day:</div>
+                    <pre><code class="language-bash"># Run ONCE after cloning (installs dependencies)
+npm install
+
+# Start development server at localhost:8080
+npm start
+
+# Build for production (creates _site folder)
+npm run build</code></pre>
+                    <p class="code-comment mt-1">Remember: If <code>npm start</code> fails with a weird error, you probably forgot to run <code>npm install</code> first. I learned that one the hard way!</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom navigation -->
+    <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+        <a href="station3.html" class="nav-link prev-link">← Previous: Eleventy Fundamentals</a>
+        <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+        <a href="station5.html" class="nav-link next-link">Next: Customization & Deployment →</a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
+        <p class="footer-reminder">
+            Standing on the shoulders of giants means giving credit where credit is due! 🟠 — HAP
+        </p>
+        <div class="footer-copyright">
+            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                alt="HAP the apprentice learner with his study book and tools"
+                class="footer-hybit" width="80" height="80" decoding="async" loading="lazy">
+            <div>
+                <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters. Visual elements created with AI assistance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Easter Egg System -->
+    <script src="../js/easter-egg.js"></script>
+
+    <!-- Syntax highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"
+        integrity="sha384-MXybTpajaBV0AkcBaCPT4KIvo0FzoCiWXgcihYsw4FUkEz0Pv3JGV6tk2G8vJtDc"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"
+        integrity="sha384-HkMr0bZB9kBW4iVtXn6nd35kO/L/dQtkkUBkL9swzTEDMdIe5ExJChVDSnC79aNA"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"
+        integrity="sha384-Uq05+JLko69eOiPr39ta9bh7kld5PKZoU+fF7g0EXTAriEollhZ+DrN8Q/Oi8J2Q"
+        crossorigin="anonymous"></script>
+
+    <!--
+    HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+    HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+    Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+    Visual elements created with AI assistance.
+    -->
+</body>
+
+</html>

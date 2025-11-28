@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    ╔══════════════════════════════════════════════════════════════════════════╗
+    ║      HAP's Learning Lab: Static Site Generation with Eleventy            ║
+    ║              Station 1: JAMstack & Static Site Generators                ║
+    ╚══════════════════════════════════════════════════════════════════════════╝
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JAMstack & SSG | HAP's Learning Lab: Static Site Generation</title>
+
+    <meta name="description"
+        content="Learn how JAMstack architecture and static site generators pre-render content at build time for lightning-fast, secure websites. HAP explains build-time vs runtime.">
+
+    <meta property="og:title" content="JAMstack & SSG | HAP's Learning Lab">
+    <meta property="og:description"
+        content="Learn how JAMstack architecture and static site generators pre-render content at build time for lightning-fast, secure websites.">
+    <meta property="og:type" content="website">
+    <meta property="og:image"
+        content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759497938/HAP-learner_dvehmt.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+
+    <!-- Performance: preconnect to Cloudinary -->
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="../fonts/Nunito/Nunito-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.woff2" as="font"
+        type="font/woff2" crossorigin>
+
+    <!-- CSP for static hosting -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+                   img-src 'self' https://res.cloudinary.com data:;
+                   script-src 'self' 'unsafe-inline';
+                   style-src 'self' 'unsafe-inline';
+                   font-src 'self';
+                   connect-src 'self' ws://localhost:* ws://127.0.0.1:*;
+                   base-uri 'self';
+                   form-action 'self';">
+
+    <!-- HAP Design System -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Accessibility skip link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header with HAP -->
+    <header class="header">
+        <div class="header-content">
+            <div class="hybit-welcome">
+                <div class="hybit-avatar">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                        alt="HAP studying JAMstack architecture concepts" width="200" height="200" decoding="async"
+                        fetchpriority="high">
+                </div>
+                <div>
+                    <h1>Station 1: JAMstack & Static Site Generators</h1>
+                    <p class="subtitle">Build-Time vs Runtime: A Mind-Blowing Discovery</p>
+                </div>
+            </div>
+            <div class="intro-box">
+                <div>
+                    <p>I thought I needed PHP and MySQL to build a blog. Every tutorial I found talked about servers,
+                        databases, and backend code. When Prof. Teeters said "You can build it with just Markdown
+                        files," I thought she was joking!</p>
+                    <p class="mt-1">"But where does the content come from?" I asked.</p>
+                    <p class="mt-1">"From the file system," she said. "You write Markdown, Eleventy builds HTML, and you
+                        upload the HTML to a CDN."</p>
+                    <p class="mt-1">"Wait—we don't generate pages when users visit?"</p>
+                    <p class="mt-1">"Nope. We generate them ONCE, during the build. Then we serve the same HTML to
+                        millions of users."</p>
+                    <p class="mt-1">My mind was blown. I'd been thinking about blogs completely wrong this whole time.
+                        Let me show you what I discovered about this thing called JAMstack... 🟠</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Navigation -->
+    <nav aria-label="Page navigation" class="page-navigation top-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+        <div class="page-position" data-page="1">Station 1 of 6</div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="content-container">
+
+        <!-- Section 1: What You'll Learn -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">What You'll Learn at This Station</h2>
+
+            <!-- HAP's discovery story -->
+            <div class="intro-box">
+                <div class="intro-box-content">
+                    <p><strong>HAP's Discovery:</strong> When I first heard "JAMstack," I thought it was about making
+                        jam.
+                        Seriously! Prof. Teeters laughed and explained it's an architecture pattern that changes how we
+                        think about building websites. Here are the three biggest concepts that rewired my brain: 🤯</p>
+                </div>
+            </div>
+
+            <!-- 3 Insight cards -->
+            <div class="overview-grid mt-2">
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🏗️</span> JAMstack Philosophy</h3>
+                    <p class="stat-large">J + A + M</p>
+                    <p>JAMstack means JavaScript, APIs, and Markup. The key insight? Pre-render everything possible at
+                        build time. Dynamic features use APIs and client-side JavaScript, not server-side code running
+                        on every request.</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3><span class="insight-icon">⚡</span> Build-Time Magic</h3>
+                    <p class="stat-large stat-teal">Once!</p>
+                    <p>Instead of generating HTML when users visit (slow!), SSGs generate HTML when you run the build
+                        command (once!). The result? Lightning-fast page loads served from CDN edge servers worldwide.
+                    </p>
+                </div>
+
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🔒</span> The Security Win</h3>
+                    <p class="stat-large stat-brown">No DB</p>
+                    <p>No database means no SQL injection attacks. No server-side code means a smaller attack surface.
+                        Static sites are inherently more secure because there's simply less to attack!</p>
+                </div>
+            </div>
+
+            <!-- HAP's Confession -->
+            <div class="hap-note-callout">
+                <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_120,c_limit/v1763230414/hap-broke-things_qtbum4.jpg"
+                    alt="HAP surrounded by tangled code with an 'oops' expression" width="120" height="120"
+                    class="hap-note-image" decoding="async" loading="lazy">
+                <div class="hap-note-content">
+                    <h3>HAP's Confession:</h3>
+                    <ul>
+                        <li>I tried to explain JAMstack and said "JavaScript, APIs, and Metadata." It's MARKUP, HAP!
+                            Grace Hopper, the lab's Precision AI, appeared and corrected me with perfect accuracy. 😳
+                        </li>
+                        <li>I thought "static" meant the content couldn't change ever. But it changes at build time,
+                            just not at request time! Big difference.</li>
+                        <li>I thought I needed to learn MySQL because I assumed every site needed a separate database.
+                            Then Prof. Teeters pointed at my content folder and said, "There's your data and the
+                            filesystem is the database."</li>
+                        <li>I kept editing files inside the <code>_site</code> folder thinking that was my real project.
+                            One time I lost an important CSS color change three times in a row. Prof. Teeters needed to
+                            remind me that Eleventy regenerates that folder every build.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: How Traditional Blogs Work -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>How Traditional Blogs Work (The Old Way)</h2>
+
+                <p class="mb-2">Before I understood static sites, I thought every blog worked like WordPress. A user
+                    visits, the server does a bunch of work, and THEN they see the page. Here's what happens behind the
+                    scenes:</p>
+
+                <!-- 6-step flow using analysis grid -->
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>1. Browser Sends Request</h3>
+                        <p>User clicks a link, browser asks server for the page</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>2. Server Receives Request</h3>
+                        <p>Web server (Apache, Nginx) routes to PHP</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>3. PHP Executes Code</h3>
+                        <p>Server runs PHP to figure out what to show</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>4. Database Query</h3>
+                        <p>PHP asks MySQL for the post content</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>5. Template Rendering</h3>
+                        <p>PHP combines template + content into HTML</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>6. Response Sent</h3>
+                        <p>Server sends finished HTML back to browser</p>
+                    </div>
+                </div>
+
+                <!-- Key problem callout -->
+                <div class="hap-note-callout mt-2">
+                    <div class="hap-note-content">
+                        <h3>🟠 The Problem:</h3>
+                        <p>This happens for EVERY visitor, EVERY time! Even if the blog post hasn't changed in months,
+                            the server does all that work again. For a popular blog, that's thousands of database
+                            queries per minute—for content that never changes!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: How Static Sites Work -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>How Static Sites Work (The New Way)</h2>
+
+                <p class="mb-2">Now here's what blew my mind. When someone visits my Eleventy blog, the server does
+                    almost nothing:</p>
+
+                <!-- 3-step simplified flow -->
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>1. Browser Sends Request</h3>
+                        <p>User clicks a link</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>2. CDN Serves File</h3>
+                        <p>Edge server returns pre-built HTML file</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>3. Done!</h3>
+                        <p>No processing, no database, no waiting</p>
+                    </div>
+                </div>
+
+                <!-- Mind-blown moment with HAP image -->
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1763230331/hap-brain-explodes_wu0or8.jpg"
+                        alt="HAP having a mind-blowing realization" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>🤯 The Revelation:</h3>
+                        <p>The HTML was built ONCE when I ran <code>npm run build</code>. Now it serves the exact same
+                            file to everyone, from edge servers around the world. I learned that an edge server is just
+                            a CDN server that's physically close to the user, so files load very fast. A user in Tokyo
+                            gets the same file as a user in New York—both served from servers near them.</p>
+                        <p class="mt-1">Prof. Teeters put it this way: "Think of it like a printed book vs a live
+                            performance. A book is 'pre-rendered'—the content is fixed when it's printed. A live
+                            performance generates content in real-time. Static sites are like books: fast to distribute,
+                            consistent for everyone, and they never crash from too many readers!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: When to Use Static Sites -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>When to Use Static Sites</h2>
+
+                <p class="mb-2">Prof. Teeters warned me: "Not everything should be static!" Here's how to know if a
+                    static site is right for your project:</p>
+
+                <!-- Comparison using analysis grid -->
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>✅ Use Static Sites When...</h3>
+                        <ul>
+                            <li>Content changes infrequently (blogs, docs, portfolios)</li>
+                            <li>You want maximum speed</li>
+                            <li>Security is critical</li>
+                            <li>Budget is limited (free hosting!)</li>
+                            <li>You want version control for content</li>
+                        </ul>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>🔄 Use Traditional CMS When...</h3>
+                        <ul>
+                            <li>Content changes constantly (news feeds, dashboards)</li>
+                            <li>You need user accounts and login</li>
+                            <li>You need real-time data</li>
+                            <li>You need complex admin workflows</li>
+                            <li>Non-technical editors need a GUI</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- HAP note about APIs -->
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_100,c_limit/v1763230356/hap-lectures_fjnxdj.jpg"
+                        alt="HAP teaching at a blackboard with HTML code" width="100" height="100"
+                        class="hap-note-image" decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>🟠 HAP's Note:</h3>
+                        <p>Here's what Prof. Teeters taught me: Static doesn't mean "no dynamic features." You can add
+                            comments with Disqus, search with Algolia, forms with Netlify Forms, and authentication with
+                            Auth0—all through APIs. That's the "A" in JAMstack! The static part is just the initial
+                            HTML.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Quick Reference -->
+        <section class="content-section">
+            <div class="tips-container">
+                <h2 class="section-heading-centered">🎓 JAMstack & SSG Quick Reference</h2>
+
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>JAMstack</h3>
+                        <p>JavaScript + APIs + Markup architecture. Pre-render at build time, enhance with client-side
+                            JS and APIs.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>SSG (Static Site Generator)</h3>
+                        <p>A tool that builds HTML at build time, not request time. Examples: Eleventy, Hugo, Jekyll,
+                            Gatsby.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>CDN (Content Delivery Network)</h3>
+                        <p>Servers distributed worldwide that serve files from locations close to users. Edge servers =
+                            fast delivery.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <h3>Build Time vs Request Time</h3>
+                        <p>Build time = when you run the build command (once). Request time = when users visit (every
+                            time). Static sites do work at build time!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Challenge -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>🎯 Challenge: Analyze Real Websites</h2>
+
+                <div class="interactive-demo">
+                    <h3>Your Mission:</h3>
+                    <p>Think about three websites you use regularly. For each one, decide:</p>
+                    <ol class="mt-1">
+                        <li>Could this be a static site? Why or why not?</li>
+                        <li>What dynamic features would need APIs instead of server-side code?</li>
+                        <li>What would be the performance benefits of static generation?</li>
+                    </ol>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <div class="hap-note-content">
+                        <h3>💡 Hint:</h3>
+                        <p><strong>Good candidates for static:</strong> blogs, documentation, portfolios, marketing
+                            sites, restaurant menus, event pages.</p>
+                        <p class="mt-1"><strong>Need traditional/hybrid:</strong> social media feeds, email clients,
+                            banking dashboards, real-time collaboration tools.</p>
+                    </div>
+                </div>
+
+                <details class="mt-2">
+                    <summary><strong>See HAP's Analysis</strong></summary>
+                    <div class="hap-note-content mt-1">
+                        <p>Here's how I analyzed my favorite sites:</p>
+                        <ol>
+                            <li><strong>Local butcher shop website</strong> — Perfect for static! Their menu,
+                                farm-to-table story, and hours rarely change. The order button or contact form could use
+                                an API, but the main site could be built once and served instantly from a CDN.</li>
+                            <li><strong>Open-source project documentation site</strong> — Great candidate. The docs are
+                                versioned, updated occasionally, and most readers just browse pages. Search, comments,
+                                or issue-links can use APIs but the content itself works brilliantly as a static site.
+                            </li>
+                            <li><strong>My favorite ukulele-music blog</strong> — Mostly static. The posts, song tabs,
+                                and instrument reviews don't change every second. If the blog adds user comments or
+                                video tutorials, those features could use APIs. But the main site could load at
+                                lightning speed and cost almost nothing to host.</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+        <a href="station2.html" class="nav-link next-link">Next: Station 2 - SSG Landscape →</a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
+        <p class="footer-reminder">
+            Remember: Static doesn't mean boring—it means FAST! Build once, serve millions. 🟠 — HAP
+        </p>
+        <div class="footer-copyright">
+            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80"
+                height="80" decoding="async" loading="lazy">
+            <div>
+                <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are
+                    proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+                    Visual elements created with AI assistance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Easter Egg System -->
+    <script src="../js/easter-egg.js"></script>
+
+    <!--
+    HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+    HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+    Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+    Visual elements created with AI assistance.
+    -->
+</body>
+
+</html>

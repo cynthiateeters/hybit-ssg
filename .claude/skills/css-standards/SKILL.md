@@ -25,7 +25,7 @@ Enforces modern HSL color format and CSS custom properties for all HAP Learning 
 
 ```css
 :root {
-  --warm-orange: hsl(32, 76%, 63%);
+  --warm-orange: hsl(32, 76%, 37%);
   --teal-accent: hsl(168, 28%, 54%);
   --shadow-sm: 0 4px 6px hsl(28, 45%, 16% / 0.06); /* With alpha */
 }
@@ -45,7 +45,7 @@ Enforces modern HSL color format and CSS custom properties for all HAP Learning 
 
 - Human-readable (hue, saturation, lightness)
 - Easy to create color variations (adjust lightness/saturation)
-- Modern alpha syntax: `hsl(32, 76%, 63% / 0.5)` (not rgba)
+- Modern alpha syntax: `hsl(32, 76%, 37% / 0.5)` (not rgba)
 - Better for accessibility adjustments
 - Industry standard for design systems
 
@@ -67,7 +67,7 @@ Enforces modern HSL color format and CSS custom properties for all HAP Learning 
 
 ```css
 .button {
-  background: hsl(32, 76%, 63%); /* Define in :root first */
+  background: hsl(32, 76%, 37%); /* Define in :root first */
   color: #FFF8F0; /* Use var(--cream-white) */
   border: 2px solid #3A7A70; /* Use var(--teal-darker) */
 }
@@ -107,7 +107,7 @@ Enforces modern HSL color format and CSS custom properties for all HAP Learning 
 
 ```css
 :root {
-  --warm-orange: hsl(32, 76%, 63%); /* Base color */
+  --warm-orange: hsl(32, 76%, 37%); /* Base color */
   --orange-darker: hsl(32, 61%, 47%); /* Variant for accessibility */
   --orange-darkest: hsl(32, 64%, 33%); /* Variant for higher contrast */
 
@@ -120,9 +120,9 @@ Enforces modern HSL color format and CSS custom properties for all HAP Learning 
 
 ```css
 :root {
-  --color-1: hsl(32, 76%, 63%); /* Not descriptive */
-  --e8a557: hsl(32, 76%, 63%); /* NEVER name after hex code */
-  --orange-light: hsl(32, 76%, 63%); /* Vague - light relative to what? */
+  --color-1: hsl(32, 76%, 37%); /* Not descriptive */
+  --e8a557: hsl(32, 76%, 37%); /* NEVER name after hex code */
+  --orange-light: hsl(32, 76%, 37%); /* Vague - light relative to what? */
 }
 ```
 
@@ -170,7 +170,7 @@ Check all color values use CSS custom properties from `:root`:
 
 - [ ] All components reference `var(--*)` for colors
 - [ ] No repeated color values (define once in `:root`)
-- [ ] Fallback values provided for safety: `var(--warm-orange, hsl(32, 76%, 63%))`
+- [ ] Fallback values provided for safety: `var(--warm-orange, hsl(32, 76%, 37%))`
 
 ### Step 3: Color addition workflow
 
@@ -216,7 +216,7 @@ If you find hex codes that need conversion:
 
 - Hex: `#E8A557`
 - RGB: `rgb(232, 165, 87)`
-- **HSL**: `hsl(32, 76%, 63%)` ✅
+- **HSL**: `hsl(32, 76%, 37%)` ✅
 
 **Replace in code**:
 
@@ -225,7 +225,7 @@ If you find hex codes that need conversion:
 background: #E8A557;
 
 /* After */
-background: var(--warm-orange); /* Defined in :root as hsl(32, 76%, 63%) */
+background: var(--warm-orange); /* Defined in :root as hsl(32, 76%, 37%) */
 ```
 
 ### Step 5: Pre-commit color checklist
@@ -237,7 +237,7 @@ Before committing ANY CSS file:
 - [ ] All colors in `hsl()` format (NOT hex or rgb)
 - [ ] All component colors use `var(--custom-property)`
 - [ ] New colors defined in `:root` first
-- [ ] Alpha channels use modern syntax: `hsl(32, 76%, 63% / 0.5)`
+- [ ] Alpha channels use modern syntax: `hsl(32, 76%, 37% / 0.5)`
 
 **Single source of truth**:
 
@@ -274,7 +274,7 @@ From Colors project and general CSS analysis:
    - Fix: Use `hsl(28, 45%, 16% / 0.06)` instead
 
 4. **Inconsistent color values**
-   - Issue: Same orange defined as `#E8A557`, `hsl(32, 76%, 63%)`, `rgb(232, 165, 87)`
+   - Issue: Same orange defined as `#E8A557`, `hsl(32, 76%, 37%)`, `rgb(232, 165, 87)`
    - Fix: ONE definition in `:root`, referenced everywhere
 
 5. **Missing contrast documentation**
@@ -385,7 +385,7 @@ When creating templates or demos:
 - **CSS custom properties are mandatory** - Define once, use everywhere
 - **Single source of truth** - All colors in `css/style.css` `:root` block
 - **AI will default to hex** - Always reject and convert to hsl()
-- **Modern alpha syntax** - Use `hsl(32, 76%, 63% / 0.5)` not `rgba()`
+- **Modern alpha syntax** - Use `hsl(32, 76%, 37% / 0.5)` not `rgba()`
 - **Contrast ratios matter** - Document all text colors with ratios
 - **Semantic naming** - Purpose-based names, not appearance-based
 

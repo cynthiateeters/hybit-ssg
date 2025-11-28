@@ -21,41 +21,9 @@ This repository provides infrastructure for creating new HAP Learning Labs on an
 
 ### Local development
 
-```bash
-# Start local server (required for JSON loading to work)
-live-server --port=3000
-
-# Then open http://localhost:3000 in browser
-```
+User will run Live Server VS Code extension at port 5500.
 
 **Important**: Direct file opening (`file://` protocol) won't work due to CORS restrictions on JSON loading for the easter egg feature.
-
-### Testing with Lighthouse
-
-**Recommended method**: Use the DevTools MCP server (Claude Code's built-in browser automation):
-
-```bash
-# Claude Code can test pages directly using MCP
-# Ask: "Test this page with Lighthouse using DevTools MCP"
-# Or: "Run accessibility audit on all stations"
-```
-
-**Alternative method**: Use Lighthouse npm package for batch testing:
-
-```bash
-# Install dependencies (one time only)
-npm install
-
-# Run Lighthouse CI on all pages
-npm run lh:ci
-```
-
-**Performance targets**:
-
-- Performance: ≥99/100
-- Accessibility: 100/100
-- Best Practices: 100/100
-- SEO: 100/100
 
 ## Template architecture
 
@@ -319,20 +287,6 @@ See `hap-image-validation` Skill for complete validation patterns.
 
 **Use hsl() format exclusively**:
 
-```css
-/* ✅ CORRECT */
-:root {
-  --warm-orange: hsl(32, 76%, 63%);
-  --peach-background: hsl(32, 35%, 88%);
-}
-
-/* ❌ WRONG - NEVER use hex or rgb */
-:root {
-  --warm-orange: #E8A557;  /* FORBIDDEN */
-  --peach-background: rgb(232, 165, 87);  /* FORBIDDEN */
-}
-```
-
 See `css-standards` Skill for complete rules and enforcement patterns.
 
 ### HAP component library
@@ -388,9 +342,9 @@ See `accessibility-check` Skill for complete checklist.
 
 **Lighthouse targets** (all stations must meet):
 
-- Performance: 99-100/100
+- Performance: 90-100/100
 - Accessibility: 100/100
-- Best Practices: 100/100
+- Best Practices: 90-100/100
 - SEO: 100/100
 
 **Optimization checklist**:
@@ -443,14 +397,13 @@ Visual elements created with AI assistance.
 2. **Don't copy from existing stations** - CRITICAL: Always use `templates/station-template.html` or `templates/station6-template.html` as starting point, never copy from completed stations
 3. **Don't break HAP's voice** - First-person, humble, references Prof. Teeters
 4. **Don't hallucinate HAP images** - CRITICAL: Always consult `.claude/skills/hap-image-validation/hap-cloudinary-complete-inventory.md` before adding any HAP image
-5. **Don't skip performance testing** - Use DevTools MCP or Lighthouse to maintain 99+ scores
+5. **Don't use title case in markdown** - Sentence case for `.md` files
 6. **Don't use hex/rgb colors** - Use hsl() format exclusively
 7. **Don't create new files unnecessarily** - Use templates provided
 8. **Don't forget width/height on images** - Causes layout shift
 9. **Don't use color alone** - Pair with icons/text for accessibility
 10. **Don't commit without testing locally** - Ensure JSON loads, images display
 11. **Don't skip Skills validation** - Each Skill prevents specific problems
-12. **Don't use title case in markdown** - Sentence case for `.md` files
 
 ## Getting help
 
@@ -495,3 +448,7 @@ After customization:
 ---
 
 **Remember**: This is a teaching tool. Clarity, accessibility, and HAP's friendly voice are more important than technical complexity. Keep it simple, keep it accessible, keep it HAP!
+
+## Context7 Auto-Invoke Rule
+
+Always use context7 when I need code generation, setup or configuration steps, or library/API documentation. This means you should automatically use the Context7 MCP tools to resolve library id and get library docs without me having to explicitly ask.

@@ -703,6 +703,7 @@ h4 {
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
+  text-align: left;
 }
 
 .intro-hap-image {
@@ -915,7 +916,7 @@ h4 {
 
 .nav-tab.active {
   background: var(--warm-orange);
-  color: var(--dark-brown);
+  color: var(--peach-background);
   border-color: var(--warm-orange);
 }
 
@@ -1331,13 +1332,14 @@ h4 {
 }
 
 .nav-link.hub-link {
-  background: var(--warm-orange);
-  border-color: var(--warm-orange);
+  background: var(--soft-orange);
+  border-color: var(--soft-orange);
 }
 
 .nav-link.hub-link:hover {
-  background: var(--soft-orange);
-  border-color: var(--soft-orange);
+  background: var(--warm-orange);
+  color: var(--peach-background);
+  border-color: var(--warm-orange);
 }
 
 .page-position {
@@ -1513,8 +1515,8 @@ pre {
 
 .display-button.active {
   background: var(--warm-orange);
+  color: var(--peach-background);
   border-color: var(--orange-darkest);
-  color: var(--dark-brown);
 }
 
 .display-button:hover {
@@ -2219,6 +2221,7 @@ pre {
 #font-size-slider::-webkit-slider-thumb:hover {
   transform: scale(1.2);
   background: var(--warm-orange);
+  color: var(--peach-background);
 }
 
 #font-size-slider::-moz-range-thumb {
@@ -2234,6 +2237,7 @@ pre {
 #font-size-slider::-moz-range-thumb:hover {
   transform: scale(1.2);
   background: var(--warm-orange);
+  color: var(--peach-background);
 }
 
 .slider-help {
@@ -2476,6 +2480,7 @@ pre {
 
 .rhythm-toggle {
   background: var(--warm-orange);
+  color: var(--peach-background);
   font-size: 1.25em;
   border: none;
   padding: 0.5rem 1rem;
@@ -2516,6 +2521,7 @@ pre {
 
 .format-table th {
   background: var(--warm-orange);
+  color: var(--peach-background);
   font-weight: 600;
 }
 
@@ -2732,6 +2738,7 @@ pre {
   width: 28px;
   height: 28px;
   background: var(--warm-orange);
+  color: var(--peach-background);
   border: 3px solid hsl(0, 0%, 100%);
   border-radius: 50%;
   cursor: pointer;
@@ -2752,6 +2759,7 @@ pre {
   width: 28px;
   height: 28px;
   background: var(--warm-orange);
+  color: var(--peach-background);
   border: 3px solid hsl(0, 0%, 100%);
   border-radius: 50%;
   cursor: pointer;
@@ -3553,7 +3561,7 @@ pre {
 /* Demo-specific copy button */
 .demo-copy-btn {
   background: var(--warm-orange);
-  color: var(--dark-brown);
+  color: var(--peach-background);
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
@@ -3633,7 +3641,7 @@ pre {
   clip: auto;
   white-space: normal;
   background: var(--warm-orange);
-  color: var(--dark-brown);
+  color: var(--peach-background);
   font-weight: 700;
   text-decoration: none;
   border-radius: 8px;
@@ -3655,6 +3663,7 @@ pre {
 
 .page-navigation a:hover {
   background: var(--warm-orange);
+  color: var(--peach-background);
   border-color: var(--soft-orange);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px hsl(32, 76%, 63% / 0.3);

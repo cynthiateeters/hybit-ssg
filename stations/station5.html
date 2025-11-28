@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    ╔══════════════════════════════════════════════════════════════════════════╗
+    ║           HAP's Learning Lab: Static Site Generation with Eleventy       ║
+    ║                  Station 5: Customization & Deployment                   ║
+    ╚══════════════════════════════════════════════════════════════════════════╝
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customization & Deployment | HAP's Learning Lab: Static Site Generation</title>
+
+    <meta name="description"
+        content="Learn how to transform a generic Eleventy template into your own styled blog and deploy it to Netlify. HAP shares his journey adding custom colors, fonts, and shortcodes.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+
+    <!-- Performance: preconnect to Cloudinary -->
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="../fonts/Nunito/Nunito-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
+
+    <meta property="og:title" content="Customization & Deployment | HAP's Learning Lab">
+    <meta property="og:description"
+        content="Learn how to transform a generic Eleventy template into your own styled blog and deploy it to Netlify.">
+    <meta property="og:type" content="website">
+    <meta property="og:image"
+        content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1763230490/hap-has-tools_kgoeys.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- CSP for static hosting -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+                   img-src 'self' https://res.cloudinary.com data:;
+                   script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+                   style-src 'self' 'unsafe-inline';
+                   font-src 'self';
+                   connect-src 'self' ws://localhost:* ws://127.0.0.1:*;
+                   base-uri 'self';
+                   form-action 'self';">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/prism-hap-theme.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header with HAP -->
+    <header class="header">
+        <div class="header-content">
+            <div class="hybit-welcome">
+                <div class="hybit-avatar">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1763230490/hap-has-tools_kgoeys.jpg"
+                        alt="HAP with his tools, ready to customize his blog"
+                        width="200" height="200" decoding="async" fetchpriority="high">
+                </div>
+                <div>
+                    <h1>HAP's Learning Lab: Customization & Deployment</h1>
+                    <p class="subtitle">From Generic Template to My Very Own Blog</p>
+                </div>
+            </div>
+            <div class="intro-box">
+                <div class="intro-box-content">
+                    <p><strong>Welcome to Station 5!</strong> I had eleventy-base-blog running. It worked! But it looked like everyone else's blog. Generic colors, generic fonts, generic everything.</p>
+                    <p class="mt-1">"How do I make it MINE without breaking everything?" I asked Prof. Teeters.</p>
+                    <p class="mt-1">"One layer at a time," she said with a patient smile. "Colors first—they're the safest change. Then fonts. Then custom features. Save the complex stuff for last. And test after each change so you know exactly what broke if something goes wrong."</p>
+                    <p class="mt-1">That advice saved me so much frustration! I started with a simple color change, tested it, then moved on. By the end, I had HAP's peach background, HAP's warm orange headings, HAP's teal links—and a custom shortcode for HAP images!</p>
+                    <p class="mt-1">And then came the moment of truth: deployment. Turns out, putting a static site on the internet is surprisingly simple... 🟠</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top navigation -->
+    <nav aria-label="Page navigation" class="page-navigation top-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+        <div class="page-position" data-page="5">Station 5 of 6</div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="content-container">
+
+        <!-- Section 1: What You'll Learn -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">What You'll Learn at This Station</h2>
+
+            <div class="intro-box">
+                <p><strong>HAP's Discovery:</strong> Customizing a template taught me that small changes add up to big transformations. I didn't need to rewrite everything—just replace colors, add fonts, and create one custom shortcode. Here are the three insights that made my blog feel truly mine:</p>
+            </div>
+
+            <div class="overview-grid mt-2">
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🎨</span> CSS Custom Properties Power</h3>
+                    <p>I created hap-colors.css with all my colors as custom properties in :root. Changing the whole color scheme? Just update those values! Everything that references them changes automatically. Prof. Teeters called this "single source of truth."</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🔧</span> Shortcodes Save Repetition</h3>
+                    <p>Instead of typing long Cloudinary URLs everywhere, I created a hapPose shortcode. Now I just write <code>{% hapPose "laptop", "HAP at computer", 150 %}</code> and it outputs the full image tag. Reusable, consistent, and SO much easier!</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🚀</span> Deploy = Upload HTML</h3>
+                    <p>No server setup. No database configuration. No PHP installation. I connected my GitHub repo to Netlify, told it to run "npm run build" and publish the _site folder. My blog was live in under 5 minutes!</p>
+                </div>
+            </div>
+
+            <!-- HAP's Confession -->
+            <div class="hap-note-callout mt-2">
+                <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1763230414/hap-broke-things_qtbum4.jpg"
+                    alt="HAP surrounded by tangled code with an 'oops' expression"
+                    width="150" height="150" class="hap-note-image" decoding="async" loading="lazy">
+                <div class="hap-note-content">
+                    <h3>HAP's Confession:</h3>
+                    <ul>
+                        <li>I forgot that I can't edit files in <code>_site</code> because it looks like the pages change but then those edits get overwritten by Eleventy.</li>
+                        <li>I tried to customize the Image Transform Plugin to skip my Cloudinary images. First attempt: a config option that doesn't exist. Second attempt: an HTML attribute that got ignored. Final solution: just comment out the plugin! Sometimes removing a feature is the right answer.</li>
+                        <li>I forgot to add <code>_site</code> to <code>.gitignore</code> and committed 47MB of generated HTML files to my repository. Prof. Teeters noticed when she reviewed my PR. "That folder rebuilds every time," she said gently. "It shouldn't be in Git." Oops.</li>
+                        <li>I pushed to main without testing the build locally first. Netlify build failed because I had a typo in my shortcode. Always run <code>npm run build</code> before pushing! Now I test locally every single time.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: The Customization Journey -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>The Customization Journey</h2>
+
+                <div class="hap-note-callout">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_120,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                        alt="HAP studying the CSS structure"
+                        width="120" height="120" class="hap-note-image" decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Approach:</h3>
+                        <p>Prof. Teeters mapped out a safe path through customization: start with colors (lowest risk), then fonts, then custom features, then complex changes. Each step built on the previous one, and I tested after every change. Here's the exact journey I followed:</p>
+                    </div>
+                </div>
+
+                <h3 class="mt-2">Step 1: Color System (Safest Change)</h3>
+                <p>I created a new file: <code>css/hap-colors.css</code></p>
+                <p class="mt-1">The magic is CSS custom properties. Instead of scattering color values everywhere, I defined them once:</p>
+
+                <div class="prompt-box mt-1">
+                    <div class="prompt-label">css/hap-colors.css:</div>
+                    <pre><code class="language-css">:root {
+  --warm-orange: hsl(32, 76%, 37%);
+  --peach-background: hsl(32, 41%, 90%);
+  --cream-white: hsl(32, 100%, 97%);
+  --dark-brown: hsl(28, 45%, 16%);
+  --teal-accent: hsl(168, 28%, 54%);
+  --teal-darker: hsl(168, 34%, 30%);
+}</code></pre>
+                </div>
+
+                <p class="mt-1">Then in <code>index.css</code>, I replaced the template's colors with my custom properties:</p>
+
+                <div class="prompt-box mt-1">
+                    <div class="prompt-label">Using custom properties in index.css:</div>
+                    <pre><code class="language-css">body {
+  background-color: var(--peach-background);
+  color: var(--dark-brown);
+}
+
+a {
+  color: var(--teal-darker);
+}</code></pre>
+                    <p class="code-comment mt-1">One file controls everything! Want a darker orange? Change <code>37%</code> to <code>33%</code> and the whole site updates.</p>
+                </div>
+
+                <h3 class="mt-2">Step 2: Typography (Medium Risk)</h3>
+                <p>Variable fonts are amazing! Instead of loading separate files for each weight:</p>
+
+                <ul>
+                    <li>Nunito-Regular.woff2</li>
+                    <li>Nunito-Bold.woff2</li>
+                    <li>Nunito-Italic.woff2</li>
+                    <li>(and nine more!)</li>
+                </ul>
+
+                <p class="mt-1">I loaded ONE file that contains ALL weights:</p>
+
+                <div class="prompt-box mt-1">
+                    <div class="prompt-label">Variable font loading:</div>
+                    <pre><code class="language-css">@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito/Nunito-VariableFont_wght.woff2') format('woff2');
+  font-weight: 200 1000;
+  font-display: swap;
+}</code></pre>
+                    <p class="code-comment mt-1">Now I can use <code>font-weight: 400</code>, <code>font-weight: 700</code>, or even <code>font-weight: 623</code>—any value I want! The browser interpolates between weights automatically.</p>
+                </div>
+
+                <h3 class="mt-2">Step 3: Custom Shortcode (Complex but Powerful)</h3>
+                <p>I was copying the same Cloudinary URL pattern over and over:</p>
+
+                <div class="prompt-box mt-1">
+                    <div class="prompt-label">Before (repetitive HTML):</div>
+                    <pre><code class="language-html">&lt;img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+     alt="HAP at laptop" width="150" height="150" loading="lazy"&gt;</code></pre>
+                </div>
+
+                <p class="mt-1">Prof. Teeters said, "That's what shortcodes are for! Let me help you write and test one."</p>
+
+                <div class="prompt-box mt-1">
+                    <div class="prompt-label">Actual code from hap-blog-starter eleventy.config.js:</div>
+                    <pre><code class="language-javascript">// HAP pose shortcode for Cloudinary images
+eleventyConfig.addShortcode("hapPose", (poseName, altText, width = 150) => {
+    const url = cloudinary.getHapPoseUrl(poseName, width);
+    return `&lt;img src="${url}" alt="${altText}" width="${width}" height="${width}" loading="lazy" decoding="async"&gt;`;
+});</code></pre>
+                </div>
+
+                <p class="mt-1">Now in my Markdown I just write:</p>
+
+                <div class="prompt-box mt-1">
+                    <div class="prompt-label">After (one simple line):</div>
+                    <pre><code class="language-nunjucks">{% hapPose "laptop", "HAP at his laptop", 400 %}</code></pre>
+                    <p class="code-comment mt-1">One line instead of five! And if I ever need to change the URL pattern, I change it in ONE place.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Image Plugin Problem -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>The Image Plugin Problem</h2>
+
+                <div class="hap-note-callout">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+                        alt="HAP frustrated with the image plugin"
+                        width="150" height="150" class="hap-note-image" decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Frustration:</h3>
+                        <p>Not everything went smoothly. The Image Transform Plugin that comes with eleventy-base-blog kept downloading my Cloudinary images and creating local copies. That defeats the whole point of using an image CDN! Here's how I solved it:</p>
+                    </div>
+                </div>
+
+                <div class="warning-box mt-2">
+                    <h3>🟠 The Problem:</h3>
+                    <p>Eleventy's Image Transform Plugin is designed to optimize local images—it creates multiple sizes, converts to WebP/AVIF, and serves the best format. Great for local images!</p>
+                    <p class="mt-1">But my images are already on Cloudinary, which does all that optimization automatically. The plugin was downloading my optimized images and re-optimizing them locally. Wasted bandwidth, slower builds, unnecessary files, and not as much flexibility.</p>
+                </div>
+
+                <h3 class="mt-2">Failed Attempts</h3>
+
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>Attempt 1 — FAILED</h3>
+                        <p>I searched for a config option to exclude external URLs:</p>
+                        <pre><code class="language-javascript">// Doesn't exist!
+remoteImageURLs: (url) =>
+  url.includes('cloudinary')
+    ? false : true</code></pre>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>Attempt 2 — FAILED</h3>
+                        <p>I tried adding an HTML attribute to skip processing:</p>
+                        <pre><code class="language-html">&lt;img src="..."
+     eleventy:ignore&gt;</code></pre>
+                        <p class="mt-1">Plugin processed it anyway!</p>
+                    </div>
+                </div>
+
+                <p class="mt-2">I was getting frustrated. Grace Hopper suggested, "Maybe check if the plugin is even necessary for your use case?"</p>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1763230331/hap-brain-explodes_wu0or8.jpg"
+                        alt="HAP realizing the simple solution"
+                        width="150" height="150" class="hap-note-image" decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>The Solution — SUCCESS!</h3>
+                        <p>Grace was right. I don't HAVE any local images. Every image on my blog comes from Cloudinary. So why do I need an image optimization plugin?</p>
+                    </div>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Actual code from hap-blog-starter eleventy.config.js:</div>
+                    <pre><code class="language-javascript">// import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+// Disabled - using Cloudinary CDN only
+
+// Image optimization: DISABLED
+// All images served via Cloudinary CDN (already optimized)
+// No local images need processing
+// If local images needed in future, re-enable here
+
+// eleventyConfig.addPlugin(eleventyImageTransformPlugin, {...});</code></pre>
+                    <p class="code-comment mt-1">That's it. No plugin, no problem.</p>
+                </div>
+
+                <div class="warning-box mt-2">
+                    <h3>🟠 Prof. Teeters' Wisdom:</h3>
+                    <p>"Sometimes the best solution is removing features you don't need. The template includes the Image Transform Plugin because MOST blogs have local images. YOUR blog, HAP, doesn't. Different needs, different solutions."</p>
+                    <p class="mt-1">I felt silly for not thinking of that sooner. But now I know: always ask "Do I actually need this?" before trying to configure around it.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Deployment to Netlify -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Deployment to Netlify</h2>
+
+                <div class="hap-note-callout">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1762699548/hap-celebrating_bljvgl.jpg"
+                        alt="HAP celebrating deployment success"
+                        width="150" height="150" class="hap-note-image" decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Triumph:</h3>
+                        <p>With my customizations complete and tested locally, it was time to put my blog on the internet. I'd heard horror stories about server configuration and deployment pipelines. Turns out, static site deployment is wonderfully simple:</p>
+                    </div>
+                </div>
+
+                <h3 class="mt-2">Pre-Deployment Checklist</h3>
+
+                <div class="tips-container">
+                    <div class="tip-card">
+                        <div class="tip-number">1</div>
+                        <div>
+                            <h3>Add _site to .gitignore</h3>
+                            <p>Don't commit generated files!</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">2</div>
+                        <div>
+                            <h3>Test the build locally</h3>
+                            <p>Run <code>npm run build</code></p>
+                        </div>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">3</div>
+                        <div>
+                            <h3>Check for errors</h3>
+                            <p>Review the build output carefully</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">4</div>
+                        <div>
+                            <h3>Review _site folder</h3>
+                            <p>See what will actually be deployed</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">5</div>
+                        <div>
+                            <h3>Update README.md</h3>
+                            <p>Make sure it's current and complete</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">6</div>
+                        <div>
+                            <h3>Commit to GitHub</h3>
+                            <p>Push all source files</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-2">Netlify Setup</h3>
+
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>1. Create Account</h3>
+                        <p>Go to netlify.com (free tier is plenty!)</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>2. Add New Site</h3>
+                        <p>Click "Add new site" → "Import an existing project"</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>3. Connect GitHub</h3>
+                        <p>Authorize Netlify to access your repositories</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>4. Select Repository</h3>
+                        <p>Choose your blog repo from the list</p>
+                    </div>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Netlify build settings:</div>
+                    <pre><code class="language-text">Build command: npm run build
+Publish directory: _site</code></pre>
+                    <p class="code-comment mt-1">That's it! Netlify clones your repo, runs the build command, and puts the _site folder on their CDN.</p>
+                </div>
+
+                <h3 class="mt-2">The Magic of Continuous Deployment</h3>
+
+                <p>Every time I push to the main branch of my repo:</p>
+
+                <ul>
+                    <li>Netlify detects the change</li>
+                    <li>Runs <code>npm run build</code> automatically</li>
+                    <li>Deploys the new version</li>
+                    <li>Old version stays available for instant rollback</li>
+                </ul>
+
+                <p class="mt-1">Pull requests get preview deployments—a temporary URL to test changes before merging. Prof. Teeters and I sometimes use this to review my blog posts before they go live!</p>
+
+                <div class="warning-box mt-2">
+                    <h3>🟠 HAP's Triumph:</h3>
+                    <p>My blog as a multi-page site was live at a real URL in under 5 minutes. No servers to configure. No databases to manage. No FTP uploads. Just push to GitHub and Netlify handles the rest.</p>
+                    <p class="mt-1">I refreshed the page probably 50 times that first day, just to see MY blog on the actual internet. With MY colors. And MY name. And my HAP selfies!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Quick Reference -->
+        <section class="content-section">
+            <div class="tips-container">
+                <h2 class="section-heading-centered">🎓 Customization & Deployment Quick Reference</h2>
+
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>Colors</h3>
+                        <p>Create <code>css/hap-colors.css</code> — Use hsl() format, define in :root</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>Fonts</h3>
+                        <p>Create <code>css/hap-fonts.css</code> — Variable fonts = one file for all weights</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>Shortcodes</h3>
+                        <p>Edit <code>eleventy.config.js</code> — <code>addShortcode()</code> for reusable components</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <h3>Images</h3>
+                        <p>Comment out Image Transform if using CDN, or configure for local images</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <div>
+                        <h3>Test Build</h3>
+                        <p>Run <code>npm run build</code> — Always test locally before pushing!</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">6</div>
+                    <div>
+                        <h3>Deploy</h3>
+                        <p>Netlify: Build command <code>npm run build</code>, Publish directory <code>_site</code></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom navigation -->
+    <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+        <a href="station4.html" class="nav-link prev-link">← Previous: Starting from a Template</a>
+        <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+        <a href="station6.html" class="nav-link next-link">Next: AI Assistance →</a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
+        <p class="footer-reminder">
+            Small changes add up to big transformations—customize one layer at a time! 🟠 — HAP
+        </p>
+        <div class="footer-copyright">
+            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                alt="HAP the apprentice learner with his study book and tools"
+                class="footer-hybit" width="80" height="80" decoding="async" loading="lazy">
+            <div>
+                <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters. Visual elements created with AI assistance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Easter Egg System -->
+    <script src="../js/easter-egg.js"></script>
+
+    <!-- Syntax highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"
+        integrity="sha384-MXybTpajaBV0AkcBaCPT4KIvo0FzoCiWXgcihYsw4FUkEz0Pv3JGV6tk2G8vJtDc"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"
+        integrity="sha384-HkMr0bZB9kBW4iVtXn6nd35kO/L/dQtkkUBkL9swzTEDMdIe5ExJChVDSnC79aNA"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"
+        integrity="sha384-Uq05+JLko69eOiPr39ta9bh7kld5PKZoU+fF7g0EXTAriEollhZ+DrN8Q/Oi8J2Q"
+        crossorigin="anonymous"></script>
+
+    <!--
+    HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+    HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+    Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+    Visual elements created with AI assistance.
+    -->
+</body>
+
+</html>

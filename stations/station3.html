@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    ╔══════════════════════════════════════════════════════════════════════════╗
+    ║           HAP's Learning Lab: Static Site Generation with Eleventy       ║
+    ║                    Station 3: Eleventy Fundamentals                      ║
+    ╚══════════════════════════════════════════════════════════════════════════╝
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eleventy Fundamentals | HAP's Learning Lab: Static Site Generation</title>
+
+    <meta name="description"
+        content="Learn Eleventy's core concepts: project structure, templates, collections, front matter, and the data cascade. HAP walks through his first successful build.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+
+    <!-- Performance: preconnect to Cloudinary -->
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="../fonts/Nunito/Nunito-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
+
+    <meta property="og:title" content="Eleventy Fundamentals | HAP's Learning Lab">
+    <meta property="og:description"
+        content="Learn Eleventy's core concepts: project structure, templates, collections, front matter, and the data cascade.">
+    <meta property="og:type" content="website">
+    <meta property="og:image"
+        content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- CSP for static hosting -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+                   img-src 'self' https://res.cloudinary.com data:;
+                   script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+                   style-src 'self' 'unsafe-inline';
+                   font-src 'self';
+                   connect-src 'self' ws://localhost:* ws://127.0.0.1:*;
+                   base-uri 'self';
+                   form-action 'self';">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/prism-hap-theme.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header with HAP -->
+    <header class="header">
+        <div class="header-content">
+            <div class="hybit-welcome">
+                <div class="hybit-avatar">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+                        alt="HAP at his laptop building his first Eleventy site"
+                        width="200" height="200" decoding="async" fetchpriority="high">
+                </div>
+                <div>
+                    <h1>HAP's Learning Lab: Eleventy Fundamentals</h1>
+                    <p class="subtitle">Zero-Config Magic That Actually Works</p>
+                </div>
+            </div>
+            <div class="intro-box">
+                <div class="intro-box-content">
+                    <p><strong>Welcome to Station 3!</strong> I installed Eleventy, added a 7-line <code>index.md</code> with front matter and a special Nunjucks template, <code>_includes/base.njk</code>, from a tutorial I found. Then at the terminal I ran <code>npx @11ty/eleventy</code>. The terminal said it built my site in 0.02 seconds.</p>
+                    <p class="mt-1">I thought it was broken. Nothing that fast could actually work!</p>
+                    <p class="mt-1">But when I opened the browser... there was my site. A real HTML page, generated from my Markdown file. No configuration file. No complex setup. Just... done.</p>
+                    <p class="mt-1">"That's the zero-config philosophy," Prof. Teeters explained. "Eleventy has sensible defaults. You only need to configure what you want to change. Most of the time, it just figures out what you meant."</p>
+                    <p class="mt-1">I stared at the screen for a moment, processing what just happened. I'd spent two days trying to set up Gatsby. Eleventy took two SECONDS.</p>
+                    <p class="mt-1">Let me show you how this magic works, because once you understand it, everything clicks into place... 🟠</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top navigation -->
+    <nav aria-label="Page navigation" class="page-navigation top-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+        <div class="page-position" data-page="3">Station 3 of 6</div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="content-container">
+
+        <!-- Section 1: What You'll Learn -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">What You'll Learn at This Station</h2>
+
+            <div class="intro-box">
+                <p><strong>HAP's Discovery:</strong> Eleventy has a few core concepts that unlock everything else. Once I understood these, building my blog went from confusing to fun. Prof. Teeters calls them "the building blocks." Here are the three that made the biggest difference for me:</p>
+            </div>
+
+            <div class="overview-grid mt-2">
+                <div class="insight-card">
+                    <h3><span class="insight-icon">📝</span> Templates Are Flexible</h3>
+                    <p>Eleventy supports multiple template languages! I use Markdown (.md) for content and Nunjucks (.njk) for layouts. You can mix and match based on what each page needs. Start with what you know!</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3><span class="insight-icon">📚</span> Collections Are Automatic</h3>
+                    <p>Put Markdown files in a folder and add a tag to the front matter, and Eleventy automatically creates a "collection" you can loop through. My blog posts appeared in a list without me writing any special code!</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🌊</span> The Data Cascade</h3>
+                    <p>Data flows from global files → directory files → front matter in each page. Each level can override the previous. This is how I set site-wide defaults but customize individual posts!</p>
+                </div>
+            </div>
+
+            <!-- HAP's Confession -->
+            <div class="hap-note-callout mt-2">
+                <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1763230414/hap-broke-things_qtbum4.jpg"
+                    alt="HAP surrounded by tangled code with an 'oops' expression"
+                    width="150" height="150" class="hap-note-image" decoding="async" loading="lazy">
+                <div class="hap-note-content">
+                    <h3>HAP's Confession:</h3>
+                    <ul>
+                        <li>I copied someone's 50-line config file I found online, not knowing what it was meant to do. Sure enough, it did funny things to my little site. Prof. Teeters gently asked, "What problem are you solving?" I didn't have an answer.</li>
+                        <li>I thought <code>.njk</code> was a typo the first time I saw it. Turns out it stands for Nunjucks, a template language I can use for my HTML. Grace Hopper—who of course knew all about template languages—gave me a quick primer. 😳</li>
+                        <li>I kept forgetting the triple dashes around front matter and putting quotes around the strings wrong. Let me tell you, writing just <code>title: My Post: Part One</code> at the top of a file doesn't work. I had to learn the simple rules for front matter and then all was good with my Markdown files.</li>
+                        <li>I put blog posts directly in the root folder instead of organizing them in <code>content/blog/</code>. My project got messy fast. Prof. Teeters showed me how folder structure not only keeps everything manageable but also acts like my database.</li>
+                        <li>I restarted the dev server after every tiny Markdown change before learning it hot-reloads content automatically. Config changes need a restart, but content updates appear instantly! Knowing that, I keep my browser open and check the site as I develop. As Prof. Teeters says, "Fixing mistakes early will save you time, HAP!"</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Project Structure -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Where Everything Lives</h2>
+                <p class="mb-2">Since I wanted a multi-page site, and before I could customize anything, I needed to understand where everything lives. Prof. Teeters walked me through the folder structure, and suddenly the project made sense. Here's how an Eleventy project is organized:</p>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Eleventy Project Structure:</div>
+                    <pre><code class="language-text">my-blog/
+├── _data/                  # Global data files
+│   └── metadata.js         # Site title, author, URL
+├── _includes/              # Reusable templates
+│   └── layouts/
+│       ├── base.njk        # Main HTML wrapper
+│       └── post.njk        # Blog post template
+├── content/                # Your actual content
+│   └── blog/
+│       ├── first-post.md   # A blog post
+│       └── second-post.md  # Another blog post
+├── css/                    # Stylesheets
+├── public/                 # Static files (copied as-is)
+├── eleventy.config.js      # Configuration (optional!)
+└── _site/                  # Generated output (don't edit!)</code></pre>
+                </div>
+
+                <div class="analysis-grid mt-2">
+                    <div class="analysis-point">
+                        <h3>📁 _data/</h3>
+                        <p><strong>Global data</strong> that every page can access. I put my site title and author info here.</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>📁 _includes/</h3>
+                        <p><strong>Templates and layouts.</strong> The underscore means Eleventy won't turn these into pages.</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>📁 content/</h3>
+                        <p><strong>Where my actual content lives.</strong> Blog posts, about page, anything I want to publish.</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>📁 _site/</h3>
+                        <p><strong>The output folder.</strong> Eleventy generates this—never edit files here! They get overwritten on every build.</p>
+                    </div>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1763230331/hap-brain-explodes_wu0or8.jpg"
+                        alt="HAP having a mind-blowing realization about how Eleventy concepts connect"
+                        width="150" height="150" class="hap-note-image" decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Breakthrough:</h3>
+                        <p>I made the mistake of editing files in <code>_site/</code> thinking that was my real project. I lost my changes three times. I was really frustrated before Prof. Teeters noticed and explained that Eleventy regenerates that entire folder on every build. Always edit source files, never output files!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Core Concepts -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>The Three Building Blocks</h2>
+                <p class="mb-2">Three concepts make Eleventy tick: front matter, layouts, and collections. Once I understood how they work together, building pages became almost automatic.</p>
+
+                <h3 class="mt-2">📋 Front Matter</h3>
+                <p>Front matter is data at the top of each file, wrapped in triple dashes. It tells Eleventy how to handle the file:</p>
+
+                <div class="prompt-box mt-1">
+                    <div class="prompt-label">Example front matter:</div>
+                    <pre><code class="language-markdown">---
+title: "My First Blog Post: Part One!"
+date: 2025-11-23
+layout: layouts/post.njk
+tags:
+  - posts
+---
+
+This is my content! Everything below the second `---` is the actual page content.
+
+And its **Super Power**? It uses Markdown syntax that I already **KNOW** and **LOVE**.</code></pre>
+                    <p class="code-comment mt-1">The <code>title</code> shows up in the browser tab. The <code>date</code> helps sort posts. The <code>layout</code> tells Eleventy which template to wrap this content in. And <code>tags: posts</code> adds this page to the "posts" collection automatically!</p>
+                </div>
+
+                <h3 class="mt-2">🎨 Layouts</h3>
+                <p>Layouts are templates that wrap your content. They're like cookie cutters—same shape for every cookie, different content inside.</p>
+
+                <div class="prompt-box mt-1">
+                    <div class="prompt-label">Simplified post.njk layout:</div>
+                    <pre><code class="language-nunjucks">---
+layout: layouts/base.njk
+---
+&lt;article&gt;
+  &lt;h1&gt;{{ title }}&lt;/h1&gt;
+  &lt;time&gt;{{ date }}&lt;/time&gt;
+  {{ content | safe }}
+&lt;/article&gt;</code></pre>
+                    <p class="code-comment mt-1">See how <code>{{ title }}</code> pulls from the front matter? And <code>{{ content | safe }}</code> is where my Markdown content appears after Eleventy converts it to HTML. The <code>| safe</code> part tells Nunjucks "trust this HTML, don't escape it."</p>
+                </div>
+
+                <h3 class="mt-2">📚 Collections</h3>
+                <p>Collections group related content. If I tag posts with <code>tags: posts</code>, Eleventy automatically creates a collection called <code>collections.posts</code> that I can loop through.</p>
+
+                <div class="prompt-box mt-1">
+                    <div class="prompt-label">Showing posts on home page:</div>
+                    <pre><code class="language-nunjucks">&lt;ul&gt;
+{% for post in collections.posts %}
+  &lt;li&gt;
+    &lt;a href="{{ post.url }}"&gt;{{ post.data.title }}&lt;/a&gt;
+  &lt;/li&gt;
+{% endfor %}
+&lt;/ul&gt;</code></pre>
+                    <p class="code-comment mt-1">This loops through every post and creates a link. I didn't have to configure anything or type a lot of HTML—just adding <code>tags: posts</code> to each blog post's front matter was enough. Eleventy figured out the rest. And the best part? Once I have the template, I can add or delete posts and the HTML automatically gets written with the right number of <code>&lt;li&gt;</code> tags. Easy-Peasy!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: The Data Cascade -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>The Data Cascade: How Data Flows</h2>
+
+                <div class="hap-note-callout">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+                        alt="HAP looking confused while studying the data cascade"
+                        width="150" height="150" class="hap-note-image" decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Initial Confusion:</h3>
+                        <p>The data cascade confused me at first. Prof. Teeters drew a diagram, and everything clicked. Data flows DOWN from general to specific, and more specific data wins:</p>
+                    </div>
+                </div>
+
+                <div class="analysis-grid mt-2">
+                    <div class="analysis-point">
+                        <h3>Level 1: Global Data</h3>
+                        <p><strong>_data/metadata.js</strong></p>
+                        <p>Site-wide defaults like author name, site title, URL</p>
+                        <p>↓ flows down to...</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>Level 2: Directory Data</h3>
+                        <p><strong>content/blog/blog.json</strong></p>
+                        <p>Folder-specific settings like default layout for all posts</p>
+                        <p>↓ flows down to...</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>Level 3: Front Matter</h3>
+                        <p><strong>each individual .md file</strong></p>
+                        <p>Page-specific overrides like guest author or custom layout</p>
+                        <p><strong>More specific = higher priority!</strong></p>
+                    </div>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Data cascade in action:</div>
+                    <pre><code class="language-text">In _data/metadata.js:
+  author: "HAP"
+
+In content/blog/blog.json:
+  layout: "layouts/post.njk"
+
+In content/blog/guest-post.md front matter:
+  author: "Grace Hopper"</code></pre>
+                </div>
+
+                <div class="warning-box mt-1">
+                    <h3>🟠 Result:</h3>
+                    <ul>
+                        <li>For <code>guest-post.md</code>, the author is "Grace Hopper" (front matter wins!)</li>
+                        <li>For other posts, I am the author "HAP" (from global data)</li>
+                        <li>All blog posts use the <code>post.njk</code> layout (from directory data)</li>
+                    </ul>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1762699548/hap-celebrating_bljvgl.jpg"
+                        alt="HAP celebrating after understanding the data cascade"
+                        width="150" height="150" class="hap-note-image" decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Aha Moment:</h3>
+                        <p>Prof. Teeters explained it this way: "Think of it like the CSS cascade. In CSS, you set some default values at the top level, and as more CSS loads from deeper files or more specific rules, those values can be overwritten." Eleventy's data cascade works the same way—the more specific data wins. That analogy made it click for me!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Quick Reference -->
+        <section class="content-section">
+            <div class="tips-container">
+                <h2 class="section-heading-centered">🎓 Eleventy Fundamentals Quick Reference</h2>
+
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>Front Matter</h3>
+                        <p>Data at top of file wrapped in <code>---</code>. Example: <code>title: "My Post"</code></p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>Layout</h3>
+                        <p>Template that wraps content. Example: <code>layout: layouts/post.njk</code></p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>Collection</h3>
+                        <p>Group of related pages created by tags. Example: <code>tags: posts</code></p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <h3>Data Cascade</h3>
+                        <p>How data flows and merges: Global → Directory → File (most specific wins!)</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <div>
+                        <h3>{{ }} Syntax</h3>
+                        <p>Output a value in Nunjucks templates. Example: <code>{{ title }}</code></p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">6</div>
+                    <div>
+                        <h3>{% %} Syntax</h3>
+                        <p>Logic like loops and conditions. Example: <code>{% for post in posts %}</code></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom navigation -->
+    <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+        <a href="station2.html" class="nav-link prev-link">← Previous: SSG Landscape</a>
+        <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+        <a href="station4.html" class="nav-link next-link">Next: Starting from a Template →</a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
+        <p class="footer-reminder">
+            Zero-config doesn't mean no configuration—it means sensible defaults that just work! 🟠 — HAP
+        </p>
+        <div class="footer-copyright">
+            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                alt="HAP the apprentice learner with his study book and tools"
+                class="footer-hybit" width="80" height="80" decoding="async" loading="lazy">
+            <div>
+                <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters. Visual elements created with AI assistance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Easter Egg System -->
+    <script src="../js/easter-egg.js"></script>
+
+    <!-- Syntax highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"
+        integrity="sha384-MXybTpajaBV0AkcBaCPT4KIvo0FzoCiWXgcihYsw4FUkEz0Pv3JGV6tk2G8vJtDc"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"
+        integrity="sha384-HkMr0bZB9kBW4iVtXn6nd35kO/L/dQtkkUBkL9swzTEDMdIe5ExJChVDSnC79aNA"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"
+        integrity="sha384-Uq05+JLko69eOiPr39ta9bh7kld5PKZoU+fF7g0EXTAriEollhZ+DrN8Q/Oi8J2Q"
+        crossorigin="anonymous"></script>
+
+    <!--
+    HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+    HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+    Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+    Visual elements created with AI assistance.
+    -->
+</body>
+
+</html>
