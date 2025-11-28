@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+    ╔══════════════════════════════════════════════════════════════════════════╗
+    ║           HAP's Learning Lab: Static Site Generation with Eleventy       ║
+    ║                    Station 6: MCP Servers for Enhanced AI                ║
+    ╚══════════════════════════════════════════════════════════════════════════╝
+-->
 
 <head>
   <meta charset="UTF-8">
@@ -10,10 +16,15 @@
   <meta name="description"
     content="Learn how to supercharge your AI coding assistant with MCP servers. HAP discovers how Context7 provides up-to-date documentation and Chrome DevTools MCP enables browser debugging—all from within VS Code.">
 
+  <meta property="og:title" content="MCP Servers | HAP's Learning Lab">
+  <meta property="og:description"
+    content="Learn how to supercharge your AI coding assistant with MCP servers.">
+  <meta property="og:type" content="website">
   <meta property="og:image"
-    content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
+    content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1763230356/hap-lectures_fjnxdj.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Standard HAP favicon (do not modify) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="16x16"
     href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
   <link rel="icon" type="image/png" sizes="32x32"
@@ -23,13 +34,27 @@
   <link rel="icon" type="image/png" sizes="192x192"
     href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
 
-  <!-- Preconnect for Cloudinary CDN -->
+  <!-- Performance: preconnect to Cloudinary -->
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="../fonts/Nunito/Nunito-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.woff2" as="font"
+    type="font/woff2" crossorigin>
+
+  <!-- CSP for static hosting -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+                 img-src 'self' https://res.cloudinary.com data:;
+                 script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+                 style-src 'self' 'unsafe-inline';
+                 font-src 'self';
+                 connect-src 'self' ws://localhost:* ws://127.0.0.1:*;
+                 base-uri 'self';
+                 form-action 'self';">
 
   <!-- HAP Design System -->
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/demos.css">
-  <link href="../css/prism-hap-theme.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/prism-hap-theme.css">
 </head>
 
 <body>
@@ -480,9 +505,9 @@
 
   </main>
 
-  <nav aria-label="Page navigation" class="page-navigation bottom-nav">
-    <a href="station5.html" class="nav-link prev-link">← Previous: Station 5</a>
-    <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+  <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+    <a href="station5.html" class="nav-link prev-link">← Previous: Customization & Deployment</a>
+    <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
   </nav>
 
   <footer class="footer">
