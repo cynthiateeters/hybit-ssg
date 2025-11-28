@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MCP Servers | HAP's Learning Lab: Static Site Generation with Eleventy</title>
+
+  <meta name="description"
+    content="Learn how to supercharge your AI coding assistant with MCP servers. HAP discovers how Context7 provides up-to-date documentation and Chrome DevTools MCP enables browser debugging—all from within VS Code.">
+
+  <meta property="og:image"
+    content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
+
+  <!-- Standard HAP favicon (do not modify) -->
+  <link rel="icon" type="image/png" sizes="16x16"
+    href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+  <link rel="icon" type="image/png" sizes="192x192"
+    href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+
+  <!-- Preconnect for Cloudinary CDN -->
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+
+  <!-- HAP Design System -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/demos.css">
+  <link href="../css/prism-hap-theme.css" rel="stylesheet">
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="header-content">
+      <div class="hybit-welcome">
+        <div class="hybit-avatar">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_400,c_limit/v1763230356/hap-lectures_fjnxdj.jpg"
+            alt="HAP teaching at a blackboard, explaining how MCP servers enhance AI coding assistants" width="400" height="400" decoding="async"
+            fetchpriority="high">
+        </div>
+        <div>
+          <h1>Station 6: MCP Servers for Enhanced AI Assistance</h1>
+          <p class="subtitle">Giving Your AI Assistant Superpowers with Real-Time Documentation</p>
+        </div>
+      </div>
+      <div class="intro-box">
+        <p><strong>Welcome to Station 6!</strong> I ran into a frustrating problem while building my Eleventy blog. My AI assistant kept giving me outdated suggestions! It would recommend older syntax when I was using the current version, or suggest configuration options that had been renamed or removed. I asked Prof. Teeters: "How can I make GitHub Copilot know about the NEWEST Eleventy documentation? Things change between versions!" She smiled and said, "HAP, you've asked exactly the right question at exactly the right time. Let me introduce you to MCP servers." I had no idea what MCP meant, but Prof. Teeters promised it would change how I work with AI coding assistants forever. She was right! 🟠</p>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Page navigation" class="page-navigation top-nav">
+    <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+    <div class="page-position" data-page="6">Station 6 of 6</div>
+  </nav>
+
+  <main id="main-content" class="content-container">
+
+    <!-- SECTION 2: What are MCP servers? -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>What are MCP servers?</h2>
+
+        <div class="hap-note-callout">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+            alt="HAP studying on his laptop, learning about MCP" width="200" height="200" class="hap-note-image"
+            decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <p>Prof. Teeters explained: "MCP stands for Model Context Protocol. It's an open standard that lets AI assistants connect to external tools and data sources."</p>
+            <p class="mt-1">I asked Grace Hopper to help me understand. She said: "Think of MCP as a universal adapter. Just as USB-C connects many devices to your computer, MCP connects many tools to your AI assistant."</p>
+          </div>
+        </div>
+
+        <p class="mt-2">Here's what clicked for me:</p>
+
+        <div class="analysis-grid mt-2">
+          <div class="analysis-point">
+            <h3>Without MCP</h3>
+            <p>AI assistants only know what they were trained on (which might be outdated)</p>
+          </div>
+
+          <div class="analysis-point">
+            <h3>With MCP</h3>
+            <p>AI assistants can access live documentation, control your browser, query databases, and more—in real time!</p>
+          </div>
+        </div>
+
+        <p class="mt-2">The best part? VS Code and GitHub Copilot now support MCP servers natively. Prof. Teeters said VS Code added native MCP server support in early 2025, becoming generally available later that year.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Meeting Context7 -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Meeting Context7</h2>
+
+        <p class="mb-2">Prof. Teeters recommended I start with Context7. "It's perfect for your Eleventy documentation problem," she said. "Context7 provides up-to-date, version-specific documentation directly to your AI assistant."</p>
+
+        <p>I visited the Eleventy docs at <a href="https://www.11ty.dev/">https://www.11ty.dev/</a> and realized how much had changed since my AI assistant was trained. No wonder I was getting wrong answers!</p>
+
+        <h3 class="mt-3">How Context7 works</h3>
+        <ol class="mt-1">
+          <li>You ask your AI assistant a question about a library and add the command: <strong>use Context7</strong></li>
+          <li>The AI has Context7 fetch the CURRENT documentation from the source</li>
+          <li>Your AI gets accurate, version-specific code examples</li>
+          <li>You get answers that actually work!</li>
+        </ol>
+
+        <h3 class="mt-3">What Context7 can access</h3>
+        <ul class="mt-1">
+          <li>Official library documentation</li>
+          <li>Code snippets from repositories</li>
+          <li>API references</li>
+          <li>Version-specific guides</li>
+        </ul>
+
+        <div class="hap-note-callout mt-3">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1764180952/hap-meets-grace_v2yifo.jpg"
+            alt="HAP shaking hands with Grace Hopper" width="150" height="150" class="hap-note-image"
+            decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <h3>Grace Hopper explains</h3>
+            <p>Grace Hopper added: "Context7 retrieves documentation from thousands of libraries. When you ask about Eleventy, it fetches current Eleventy documentation—not outdated training data."</p>
+            <p class="mt-1">This was exactly what I needed!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Installing Context7 in VS Code -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Installing Context7 in VS Code</h2>
+
+        <p class="mb-2">Prof. Teeters walked me through the installation. It was surprisingly easy!</p>
+
+        <h3 class="mt-3">Step 1: Enable Agent Mode</h3>
+        <p class="mt-1">In VS Code Settings, search for <code>chat.agent.enabled</code> and turn it on. This is required for MCP servers to work with GitHub Copilot.</p>
+
+        <h3 class="mt-3">Step 2: Install from the MCP Gallery</h3>
+        <p class="mt-1">This is the easy part! Open the Command Palette (<kbd>Cmd+Shift+P</kbd> on Mac, <kbd>Ctrl+Shift+P</kbd> on Windows) and run:</p>
+
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">Command to run:</div>
+          <pre><code class="language-text">MCP: Browse MCP Servers</code></pre>
+        </div>
+
+        <p class="mt-2">Find <strong>Context7</strong> in the list and click <strong>Install</strong>. That's it!</p>
+
+        <h3 class="mt-3">Step 3: Verify it works</h3>
+        <p class="mt-1">Open GitHub Copilot Chat, switch to Agent mode, and click the "Select tools" icon. You should see Context7 listed under your available tools!</p>
+
+        <div class="hap-note-callout mt-3">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+            alt="HAP with his study book and tools" width="150" height="150" class="hap-note-image"
+            decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <h3>HAP's installation experience</h3>
+            <p>I'll be honest—I expected this to be harder. Prof. Teeters laughed and said, "VS Code added the MCP Gallery specifically to make this simple. No JSON files, no command line—just click Install."</p>
+            <p class="mt-1"><strong>For advanced users:</strong> You can also install Context7 manually using: <code>npx @upstash/context7-mcp</code></p>
+            <p class="mt-1">Grace Hopper approved: "Simplicity enables adoption."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Using Context7 for Eleventy questions -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Using Context7 for Eleventy questions</h2>
+
+        <p class="mb-2">With Context7 installed, I tested it on my actual Eleventy problems.</p>
+
+        <div class="analysis-grid mt-2">
+          <div class="analysis-point">
+            <h3>My old approach (before MCP)</h3>
+            <p><em>"How do I create a custom filter in Eleventy?"</em></p>
+            <p class="mt-1">→ AI gives generic answer, possibly outdated</p>
+          </div>
+
+          <div class="analysis-point">
+            <h3>My new approach (with Context7)</h3>
+            <p><em>"Use context7 to look up how to create a custom filter in Eleventy v3"</em></p>
+            <p class="mt-1">→ AI fetches current Eleventy v3 documentation<br>→ I get accurate, working code!</p>
+          </div>
+        </div>
+
+        <h3 class="mt-3">Real example that saved me</h3>
+        <p class="mt-1">I asked about the Image Transform plugin configuration. Without Context7, the AI suggested options that don't exist. WITH Context7, it pulled the actual plugin documentation and gave me the correct syntax.</p>
+
+        <p class="mt-2">The difference was immediate—no more guessing whether the AI's suggestions were current!</p>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Chrome DevTools MCP server -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Chrome DevTools MCP server</h2>
+
+        <div class="hap-note-callout">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_120,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+            alt="HAP looking confused while learning Chrome DevTools MCP" width="120" height="120" class="hap-note-image"
+            decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <p>Prof. Teeters had another suggestion: "For frontend development, my favorite is Chrome DevTools MCP. It lets your AI assistant actually control and inspect a live Chrome browser!"</p>
+            <p class="mt-1">I was skeptical. "The AI can control my browser?"</p>
+          </div>
+        </div>
+
+        <h3 class="mt-3">Key features of Chrome DevTools MCP</h3>
+        <ul class="mt-1">
+          <li><strong>Performance insights:</strong> Records traces and extracts actionable performance data</li>
+          <li><strong>Network analysis:</strong> Analyzes requests without you manually checking DevTools</li>
+          <li><strong>Screenshot capture:</strong> Takes screenshots for visual debugging</li>
+          <li><strong>Console access:</strong> Reads browser console errors and warnings</li>
+          <li><strong>Reliable automation:</strong> Built on the Chrome DevTools Protocol (CDP), similar to how Puppeteer communicates with Chrome</li>
+        </ul>
+
+        <h3 class="mt-3">Why this matters for Eleventy</h3>
+        <p class="mt-1">When I deploy my blog, I can ask: "Check my site's Lighthouse performance score" or "Are there any console errors on my homepage?"</p>
+
+        <p class="mt-2">Grace Hopper noted: "This server connects AI to your actual development environment. Theory becomes practice."</p>
+
+        <p class="mt-1">I installed it following the same pattern as Context7.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 7: Installing Chrome DevTools MCP -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Installing Chrome DevTools MCP</h2>
+
+        <p class="mb-2">Installing Chrome DevTools MCP was just as easy:</p>
+
+        <h3 class="mt-3">Same process as Context7</h3>
+        <ol class="mt-1">
+          <li>Open Command Palette (<kbd>Cmd+Shift+P</kbd> or <kbd>Ctrl+Shift+P</kbd>)</li>
+          <li>Run <strong>"MCP: Browse MCP Servers"</strong></li>
+          <li>Find <strong>Chrome DevTools MCP</strong> and click <strong>Install</strong></li>
+        </ol>
+
+        <div class="warning-box mt-3">
+          <h3>Important requirement</h3>
+          <p>Chrome browser must be installed on your computer. The MCP server needs Chrome to control!</p>
+        </div>
+
+        <h3 class="mt-3">Verifying it works</h3>
+        <p class="mt-1">After installation, I opened Copilot Agent mode and saw new Chrome DevTools tools available. I could:</p>
+        <ul class="mt-1">
+          <li>Navigate to URLs</li>
+          <li>Take screenshots</li>
+          <li>Analyze performance</li>
+          <li>Check console errors</li>
+        </ul>
+        <p class="mt-1">All through natural language commands!</p>
+
+        <div class="hap-note-callout mt-3">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+            alt="HAP with his study book and tools" width="150" height="150" class="hap-note-image"
+            decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <h3>Prof. Teeters on the pattern</h3>
+            <p>Prof. Teeters pointed out: "Notice how both servers installed the same way? That's the beauty of having a standard protocol. Once you learn the pattern, adding new capabilities is trivial."</p>
+            <p class="mt-1">The power of having TWO MCP servers felt amazing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: Practical workflow with both servers -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Practical workflow with both servers</h2>
+
+        <div class="hap-note-callout">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1763230522/hap-thumbs-up_s4si0j.jpg"
+            alt="HAP giving a confident thumbs up" width="200" height="200" class="hap-note-image"
+            decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <h3>Here's my new workflow for building Eleventy sites:</h3>
+          </div>
+        </div>
+
+        <div class="tips-container mt-2">
+          <div class="tip-card">
+            <div class="tip-number">1</div>
+            <div>
+              <h3>Planning & learning (Context7)</h3>
+              <p><em>"How does Eleventy's data cascade work in v3?"</em><br>→ Get accurate, current documentation</p>
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-number">2</div>
+            <div>
+              <h3>Implementation (Context7)</h3>
+              <p><em>"Show me the syntax for creating a Nunjucks filter"</em><br>→ Get working code examples</p>
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-number">3</div>
+            <div>
+              <h3>Debugging (Chrome DevTools MCP)</h3>
+              <p><em>"Navigate to localhost:8080 and check for console errors"</em><br>→ AI inspects my running site</p>
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-number">4</div>
+            <div>
+              <h3>Performance (Chrome DevTools MCP)</h3>
+              <p><em>"Run a Lighthouse audit on my blog"</em><br>→ Get actionable performance insights</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hap-note-callout mt-3">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+            alt="HAP with his study book and tools" width="150" height="150" class="hap-note-image"
+            decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <h3>Prof. Teeters' observations</h3>
+            <p>Prof. Teeters observed: "You're not just using AI—you're building a development environment where AI can truly help."</p>
+            <p class="mt-1">She added: "For really complex problems, I also use the sequential-thinking MCP server—it helps AI break down problems into manageable steps and think more carefully before answering."</p>
+            <p class="mt-1">I finally understood what she meant by "AI as a learning partner."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: Key takeaways -->
+    <section class="content-section">
+      <h2 class="section-heading-centered">Key takeaways</h2>
+
+      <p class="mb-2">Here's what I learned about MCP servers:</p>
+
+      <div class="tips-container">
+        <div class="tip-card">
+          <div class="tip-number">1</div>
+          <div><p>MCP is an open protocol—VS Code supports it natively</p></div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-number">2</div>
+          <div><p>Context7 solves the "outdated documentation" problem</p></div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-number">3</div>
+          <div><p>Chrome DevTools MCP lets AI interact with your actual browser</p></div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-number">4</div>
+          <div><p>The MCP Gallery makes installation easy—just browse and click Install!</p></div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-number">5</div>
+          <div><p>Enable Agent Mode in GitHub Copilot settings first!</p></div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-number">6</div>
+          <div><p>You can use multiple MCP servers together</p></div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-number">7</div>
+          <div><p>Auto-invoke rules save time (add to your AI assistant's configuration file)</p></div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-number">8</div>
+          <div><p>Once you learn the pattern, adding new servers is trivial</p></div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-number">9</div>
+          <div><p>MCP servers make AI assistants dramatically more useful</p></div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-number">10</div>
+          <div><p>This is how professional developers are working NOW</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: Reflection questions -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Reflection questions</h2>
+
+        <p class="mb-2">Before you leave this station, think about:</p>
+
+        <ol class="mt-1">
+          <li class="mb-1"><strong>How would up-to-date documentation change the way you use AI assistants?</strong></li>
+          <li class="mb-1"><strong>What other MCP servers might be useful for your projects?</strong> (Hint: there are servers for GitHub, databases, Kubernetes, and more!)</li>
+          <li class="mb-1"><strong>Why is it important that MCP is an "open protocol" backed by multiple companies?</strong></li>
+          <li class="mb-1"><strong>How does having AI control your browser change debugging?</strong></li>
+          <li class="mb-1"><strong>What's the difference between AI trained on old docs vs. AI with live documentation access?</strong></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 11: Next steps -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Next steps</h2>
+
+        <p class="mb-2">Ready to try MCP servers yourself? Here's your path:</p>
+
+        <h3 class="mt-3">1. Verify your setup</h3>
+        <ul class="mt-1">
+          <li>VS Code with MCP support (2025 or later)</li>
+          <li>GitHub Copilot extension installed</li>
+          <li>Agent Mode enabled in settings</li>
+        </ul>
+
+        <h3 class="mt-3">2. Start with Context7</h3>
+        <ul class="mt-1">
+          <li>Run "MCP: Browse MCP Servers" from Command Palette</li>
+          <li>Find Context7 and click Install</li>
+          <li>Test with a library you're learning</li>
+        </ul>
+
+        <h3 class="mt-3">3. Add Chrome DevTools MCP</h3>
+        <ul class="mt-1">
+          <li>Same process—browse, find, install!</li>
+          <li>Try "take a screenshot of localhost:8080"</li>
+          <li>Run a Lighthouse audit through chat</li>
+        </ul>
+
+        <h3 class="mt-3">4. Explore more servers</h3>
+        <ul class="mt-1">
+          <li><strong>Sequential-thinking</strong> for complex problem-solving (Prof. Teeters' favorite!)</li>
+          <li><strong>GitHub MCP Server</strong> for repository management</li>
+          <li><strong>Database servers</strong> for SQL queries</li>
+          <li>Check the VS Code MCP documentation for ideas</li>
+        </ul>
+
+        <div class="hap-note-callout mt-3">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+            alt="HAP with his study book and tools" width="150" height="150" class="hap-note-image"
+            decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <h3>Prof. Teeters on the future</h3>
+            <p>The MCP ecosystem is growing fast. Prof. Teeters said: "Learn the pattern now, and you'll be ready for whatever servers come next."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: HAP's final message -->
+    <section class="content-section">
+      <h2 class="section-heading-centered">HAP's final message</h2>
+
+      <div class="hap-note-callout">
+        <img
+          src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-waving_dgzacg.jpg"
+          alt="HAP waving goodbye with encouragement" width="200" height="200" class="hap-note-image"
+          decoding="async" loading="lazy">
+        <div class="hap-note-content">
+          <p>When I started this learning lab, I thought AI assistants were just "smart autocomplete." Now I know they can be powerful development partners—especially with MCP servers connecting them to real-world tools and documentation.</p>
+          <p class="mt-1">The moment Context7 gave me accurate Eleventy syntax (instead of outdated code) was when everything changed. My AI assistant finally understood my ACTUAL development environment!</p>
+          <p class="mt-1">Prof. Teeters always says: "The best developers aren't the ones who memorize everything—they're the ones who know how to find accurate information quickly."</p>
+          <p class="mt-1">MCP servers are how we do that in 2025.</p>
+          <p class="mt-2">Thanks for learning with me! Now go supercharge your AI assistant.</p>
+          <p class="mt-2"><strong>🟠 — HAP</strong></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <nav aria-label="Page navigation" class="page-navigation bottom-nav">
+    <a href="station5.html" class="nav-link prev-link">← Previous: Station 5</a>
+    <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+  </nav>
+
+  <footer class="footer">
+    <p><strong>HAP's Learning Lab</strong> | Station 6: MCP Servers for Enhanced AI Assistance</p>
+
+    <p class="footer-reminder readable-width">
+      MCP servers transform AI assistants from "smart autocomplete" into true development partners. Context7 for documentation, Chrome DevTools MCP for debugging, and the pattern works for any server you add next! 🔬 — HAP
+    </p>
+
+    <div class="footer-copyright">
+      <img
+        src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+        alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80" height="80"
+        decoding="async" loading="lazy">
+      <div>
+        <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+        <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are proprietary
+          educational innovations.</p>
+        <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters. Visual
+          elements created with AI assistance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Prism.js for syntax highlighting (loaded last for performance) -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js" defer></script>
+
+  <!-- Copy button functionality for code blocks -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('pre').forEach(function (codeBlock) {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.textContent = 'Copy';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+
+        button.addEventListener('click', function () {
+          const code = codeBlock.querySelector('code');
+          const text = code ? code.textContent : codeBlock.textContent;
+          navigator.clipboard.writeText(text).then(function () {
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            setTimeout(function () {
+              button.textContent = 'Copy';
+              button.classList.remove('copied');
+            }, 2000);
+          });
+        });
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+        codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+        wrapper.appendChild(codeBlock);
+        wrapper.appendChild(button);
+      });
+    });
+  </script>
+
+  <!-- Easter Egg System -->
+  <script src="../js/easter-egg.js"></script>
+
+  <!--
+  HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+  HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+  Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+  Visual elements created with AI assistance.
+  -->
+</body>
+
+</html>
