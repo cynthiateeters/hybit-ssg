@@ -1,10 +1,10 @@
 # HAP insights data documentation
 
-**Last updated:** October 3, 2025
+**Last updated:** November 28, 2025
 
 ## Overview
 
-This directory contains the data files for HAP's educational easter egg system. The easter egg displays contextual learning insights from HAP (HyBit A. ProtoBot) when students add URL parameters like `?hybit=detail` to any page. HAP shares what he learned from Prof. Teeters in his friendly apprentice voice.
+This directory contains the data files for HAP's educational easter egg system. The easter egg displays contextual learning insights from HAP (HyBit A. ProtoBot) when students add URL parameters like `?hybit=jamstack` to any page. HAP shares what he learned from Prof. Teeters in his friendly apprentice voice.
 
 ## Files in this directory
 
@@ -28,9 +28,9 @@ Whitelist of valid parameter values. Only these trigger specific messages.
 
 ```json
 "allowedParams": [
-  "detail",
-  "srcset",
-  "lazy"
+  "learning-lab",
+  "jamstack",
+  "eleventy"
 ]
 ```
 
@@ -121,8 +121,8 @@ Add your parameter name to `allowedParams`:
 
 ```json
 "allowedParams": [
-  "detail",
-  "srcset",
+  "learning-lab",
+  "jamstack",
   "newparam"
 ]
 ```
@@ -241,16 +241,27 @@ CQ containment on parent elements."
 
 | Parameter | Title | Station | Added |
 |-----------|-------|---------|-------|
-| `detail` | Lighthouse Score: 98%-100%! | All | Initial |
-| `stations` | Learning Stations | Hub | Initial |
-| `srcset` | Perfect image for every screen | 2 | Initial |
-| `picture` | The &lt;picture&gt; element | 3 | Initial |
-| `cloudinary` | Using f_auto,q_auto | 4 | Initial |
-| `defer` | Deferred scripts = faster page loads! | 5 | Initial |
-| `lazy` | Lazy loading (80% reduction) | 5 | Initial |
-| `container` | Components that adapt | 6 | Initial |
-| `context` | Context-aware components | 6 | Initial |
-| `prompt` | AI prompt engineering matters! | 1 | Oct 2025 |
+| `learning-lab` | Why a Learning Lab? | Hub | Nov 2025 |
+| `stations` | 6 Learning Stations | Hub | Nov 2025 |
+| `hap` | Meet HAP! | Hub | Nov 2025 |
+| `jamstack` | The JAM in JAMstack | 1 | Nov 2025 |
+| `build-time` | Build Once, Serve Forever! | 1 | Nov 2025 |
+| `cdn` | CDN = Speed Everywhere | 1 | Nov 2025 |
+| `choose-ssg` | 50 Tools, 1 Decision | 2 | Nov 2025 |
+| `eleventy` | Why Eleventy Won | 2 | Nov 2025 |
+| `language` | Start with What You Know! | 2 | Nov 2025 |
+| `zero-config` | 0.02 Seconds to Build! | 3 | Nov 2025 |
+| `front-matter` | YAML at the Top | 3 | Nov 2025 |
+| `data-cascade` | Data Flows Down | 3 | Nov 2025 |
+| `template` | Templates = Learning! | 4 | Nov 2025 |
+| `structure` | The _includes Folder | 4 | Nov 2025 |
+| `zach` | Thanks, Zach! | 4 | Nov 2025 |
+| `one-at-a-time` | Change One Thing! | 5 | Nov 2025 |
+| `colors` | HAP's Peach & Orange | 5 | Nov 2025 |
+| `netlify` | 5-Minute Deploy! | 5 | Nov 2025 |
+| `mcp` | What is MCP? | 6 | Nov 2025 |
+| `context7` | Real-Time Docs! | 6 | Nov 2025 |
+| `devtools` | AI Sees Your Browser! | 6 | Nov 2025 |
 
 ## Security considerations
 

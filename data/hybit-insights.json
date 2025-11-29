@@ -1,0 +1,249 @@
+{
+  "allowedParams": [
+    "learning-lab",
+    "stations",
+    "hap",
+    "jamstack",
+    "build-time",
+    "cdn",
+    "choose-ssg",
+    "eleventy",
+    "language",
+    "zero-config",
+    "front-matter",
+    "data-cascade",
+    "template",
+    "structure",
+    "zach",
+    "one-at-a-time",
+    "colors",
+    "netlify",
+    "mcp",
+    "context7",
+    "devtools"
+  ],
+  "messages": {
+    "learning-lab": {
+      "title": "🔬 Why a Learning Lab?",
+      "content": "Prof. Teeters taught me that the best way to learn is by doing AND teaching. This Learning Lab documents my entire journey from <strong>\"what's a static site?\"</strong> to <strong>deploying my own blog</strong>. I share my mistakes so you can avoid them, and my breakthroughs so you can celebrate them too!"
+    },
+    "stations": {
+      "title": "🗺️ 6 Learning Stations",
+      "content": "I created six stations covering my entire journey: from <strong>\"what's JAMstack?\"</strong> to <strong>deploying my own blog</strong> to <strong>supercharging AI with MCP servers</strong>. Each station builds on what I learned before. Prof. Teeters calls it 'scaffolded learning'—start simple, add complexity gradually!"
+    },
+    "hap": {
+      "title": "🔬 Meet HAP!",
+      "content": "I'm <strong>HyBit A. ProtoBot</strong>—HAP for short! I'm Prof. Teeters' apprentice, learning web development one concept at a time. I share my mistakes so you can avoid them, and my breakthroughs so you can celebrate them too. My signature color is orange 🟠 and my motto is: <em>\"Learn by doing, share what you discover!\"</em>"
+    },
+    "jamstack": {
+      "title": "🏗️ The JAM in JAMstack",
+      "content": "When Prof. Teeters first said 'JAMstack,' I thought she was talking about breakfast! But then she explained: <strong>J</strong>avaScript for interactivity, <strong>A</strong>PIs for dynamic data, and <strong>M</strong>arkup pre-built at deploy time. The key insight? Your HTML exists BEFORE users visit. No server generating pages on the fly!"
+    },
+    "build-time": {
+      "title": "⚡ Build Once, Serve Forever!",
+      "content": "This was my biggest 'aha!' moment: traditional sites generate HTML <em>every time someone visits</em>. Static sites generate HTML <em>once during the build</em>, then serve that same HTML to millions of users. Prof. Teeters said it's like photocopying vs. hand-writing each page. The photocopier wins every time!"
+    },
+    "cdn": {
+      "title": "🌐 CDN = Speed Everywhere",
+      "content": "I asked Prof. Teeters why static sites are so fast. She pulled up a world map showing CDN edge servers. <strong>\"Your HTML lives on servers all over the world,\"</strong> she said. <strong>\"Users get it from the closest one.\"</strong> A user in Tokyo gets the same site as someone in Toronto—both lightning fast because neither needs to wait for a distant server to generate anything!"
+    },
+    "choose-ssg": {
+      "title": "🎯 50 Tools, 1 Decision",
+      "content": "I was paralyzed by choice—so many static site generators! Prof. Teeters asked one question that changed everything: <strong>\"What programming language do you know best?\"</strong> Suddenly, 50 options became 5. Ruby devs pick Jekyll, Go devs pick Hugo, JavaScript devs pick Eleventy or Astro. Start with what you know!"
+    },
+    "eleventy": {
+      "title": "⚡ Why Eleventy Won",
+      "content": "After comparing options, Eleventy stood out for three reasons Prof. Teeters highlighted: <strong>1)</strong> It's JavaScript-based (my target language!), <strong>2)</strong> It has zero client-side JavaScript by default (faster sites!), and <strong>3)</strong> It doesn't lock you into a framework. I can use any templating language I want. Freedom!"
+    },
+    "language": {
+      "title": "🔬 Start with What You Know!",
+      "content": "Prof. Teeters' advice saved me weeks of frustration: <em>\"Don't learn a new programming language AND a new tool at the same time.\"</em> If you know Ruby, try Jekyll. Know Python? Look at Pelican. Know JavaScript? Eleventy is your friend. You can always switch later once you understand the concepts!"
+    },
+    "zero-config": {
+      "title": "⚡ 0.02 Seconds to Build!",
+      "content": "I ran <code>npx @11ty/eleventy</code> and it said the build took 0.02 seconds. I thought it was broken! But when I opened the browser, there was my site. Prof. Teeters laughed: <strong>\"That's zero-config philosophy. Sensible defaults, no setup required.\"</strong> I'd spent two days trying to configure Gatsby. Eleventy took two SECONDS."
+    },
+    "front-matter": {
+      "title": "📋 YAML at the Top",
+      "content": "The <code>---</code> markers at the top of Markdown files confused me at first. Prof. Teeters explained: <strong>\"That's front matter—metadata about your content.\"</strong> Title, date, tags, layout—all defined in YAML between those dashes. The content below is your actual post. Simple once you see it!"
+    },
+    "data-cascade": {
+      "title": "🗂️ Data Flows Down",
+      "content": "Eleventy's data cascade seemed like magic until Prof. Teeters drew it on the whiteboard. Data can come from <strong>global files</strong> (in <code>_data/</code>), <strong>directory files</strong>, <strong>front matter</strong>, or <strong>computed data</strong>. Each level can override the one above. It's like CSS specificity, but for your content!"
+    },
+    "template": {
+      "title": "📋 Templates = Learning!",
+      "content": "I felt weird using eleventy-base-blog at first—wasn't I just copying? Prof. Teeters set me straight: <strong>\"Zach Leatherman created this template specifically for people to learn from. Clone it, study it, make it yours.\"</strong> Starting from a working example taught me more than any blank file ever could!"
+    },
+    "structure": {
+      "title": "📁 The _includes Folder",
+      "content": "When I opened eleventy-base-blog, the folder structure overwhelmed me. Prof. Teeters pointed to the key directories: <code>_includes/</code> for layouts and partials, <code>_data/</code> for global data, <code>content/</code> for posts. <strong>\"Ignore the rest until you need it,\"</strong> she said. Best advice ever!"
+    },
+    "zach": {
+      "title": "🙏 Thanks, Zach!",
+      "content": "Zach Leatherman created Eleventy AND the eleventy-base-blog template. Prof. Teeters reminded me: <strong>\"Open source works because people share their knowledge freely. Always give credit.\"</strong> So: thank you, Zach! Your template taught me more about Eleventy than any documentation could."
+    },
+    "one-at-a-time": {
+      "title": "🎯 Change One Thing!",
+      "content": "My first customization attempt was a disaster—I changed colors, fonts, AND layout at once. When it broke, I had no idea what caused it! Prof. Teeters' rule saved me: <strong>\"One change, then test. One change, then test.\"</strong> Now I always know exactly what broke if something goes wrong."
+    },
+    "colors": {
+      "title": "🎨 HAP's Peach & Orange",
+      "content": "Making the blog MINE started with colors. I found the CSS custom properties in <code>:root</code> and changed <code>--background</code> to my signature peach, <code>--heading-color</code> to warm orange. Prof. Teeters smiled: <strong>\"See? One change, visible everywhere. That's the power of CSS custom properties!\"</strong>"
+    },
+    "netlify": {
+      "title": "🚀 5-Minute Deploy!",
+      "content": "I thought deployment would be complicated. Prof. Teeters had me connect my GitHub repo to Netlify, and... that was it. Every time I push changes, Netlify rebuilds and deploys automatically. <strong>My blog was live in under 5 minutes.</strong> Free hosting, free SSL, automatic deploys. The future is amazing!"
+    },
+    "mcp": {
+      "title": "🔌 What is MCP?",
+      "content": "MCP stands for <strong>Model Context Protocol</strong>—it's how AI assistants connect to external tools and data sources. Prof. Teeters explained it perfectly: <em>\"Without MCP, your AI is stuck with its training data. With MCP, it can fetch current documentation, control your browser, and more.\"</em> Game changer for development!"
+    },
+    "context7": {
+      "title": "📚 Real-Time Docs!",
+      "content": "My AI kept suggesting outdated Eleventy syntax. Then I installed Context7, and suddenly it could fetch the <strong>current</strong> documentation! Prof. Teeters showed me: just add <code>use context7</code> to my prompt, and it retrieves up-to-date docs for any library. No more deprecated code suggestions!"
+    },
+    "devtools": {
+      "title": "🔍 AI Sees Your Browser!",
+      "content": "Chrome DevTools MCP lets my AI assistant actually <strong>see and control my browser</strong>. It can take screenshots, inspect elements, check console errors—all without me copying and pasting. Prof. Teeters called it <em>\"giving your AI eyes.\"</em> Debugging CSS has never been easier!"
+    }
+  },
+  "pageHelp": {
+    "index.html": {
+      "title": "🔬 HAP's insights available!",
+      "intro": "Welcome to my Learning Lab! I documented everything I learned about static sites. Try these:",
+      "suggestions": [
+        {
+          "param": "learning-lab",
+          "label": "Why I created this"
+        },
+        {
+          "param": "stations",
+          "label": "Discover the 6 learning stations"
+        },
+        {
+          "param": "hap",
+          "label": "Learn about your guide"
+        }
+      ]
+    },
+    "station1.html": {
+      "title": "🏗️ HAP here!",
+      "intro": "This station blew my mind! I thought blogs needed databases, but Prof. Teeters showed me a completely different approach. Try these insights:",
+      "suggestions": [
+        {
+          "param": "jamstack",
+          "label": "What JAMstack actually means"
+        },
+        {
+          "param": "build-time",
+          "label": "Why pre-rendering changes everything"
+        },
+        {
+          "param": "cdn",
+          "label": "How CDNs make sites blazing fast"
+        }
+      ]
+    },
+    "station2.html": {
+      "title": "🗺️ HAP here!",
+      "intro": "So many choices! Prof. Teeters taught me to start with my skills, not feature lists. Here's what helped me decide:",
+      "suggestions": [
+        {
+          "param": "choose-ssg",
+          "label": "How to narrow down 50 options"
+        },
+        {
+          "param": "eleventy",
+          "label": "Why I chose Eleventy"
+        },
+        {
+          "param": "language",
+          "label": "Match tools to your skills"
+        }
+      ]
+    },
+    "station3.html": {
+      "title": "⚡ HAP here!",
+      "intro": "My first build took 0.02 seconds and I thought it was broken! Prof. Teeters explained Eleventy's magic:",
+      "suggestions": [
+        {
+          "param": "zero-config",
+          "label": "Why Eleventy is SO fast"
+        },
+        {
+          "param": "front-matter",
+          "label": "Those --- markers explained"
+        },
+        {
+          "param": "data-cascade",
+          "label": "How data flows through Eleventy"
+        }
+      ]
+    },
+    "station4.html": {
+      "title": "📋 HAP here!",
+      "intro": "I felt weird using someone else's code at first. Prof. Teeters showed me why templates are the best way to learn:",
+      "suggestions": [
+        {
+          "param": "template",
+          "label": "Why starting from templates works"
+        },
+        {
+          "param": "structure",
+          "label": "Key folders to understand first"
+        },
+        {
+          "param": "zach",
+          "label": "Credit to Eleventy's creator"
+        }
+      ]
+    },
+    "station5.html": {
+      "title": "🎨 HAP here!",
+      "intro": "Making it MINE without breaking everything—that was my goal! Prof. Teeters taught me the secret:",
+      "suggestions": [
+        {
+          "param": "one-at-a-time",
+          "label": "The golden rule of customization"
+        },
+        {
+          "param": "colors",
+          "label": "How I added HAP's signature colors"
+        },
+        {
+          "param": "netlify",
+          "label": "Deploying in under 5 minutes"
+        }
+      ]
+    },
+    "station6.html": {
+      "title": "🔌 HAP here!",
+      "intro": "My AI kept giving outdated code until Prof. Teeters introduced MCP servers. Game changer! Try:",
+      "suggestions": [
+        {
+          "param": "mcp",
+          "label": "What MCP actually means"
+        },
+        {
+          "param": "context7",
+          "label": "Getting current documentation"
+        },
+        {
+          "param": "devtools",
+          "label": "AI-powered browser debugging"
+        }
+      ]
+    }
+  },
+  "defaults": {
+    "unknown": {
+      "title": "🎯 You discovered HAP's insights!",
+      "content": "Nice find! Try different parameters to learn more about the topics Prof. Teeters taught me."
+    },
+    "emptyFallback": {
+      "title": "🎯 You discovered HAP's insights!",
+      "content": "Hey there! Try adding a parameter like <code>?hybit=stations</code> to see what I've learned!"
+    }
+  }
+}

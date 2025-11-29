@@ -312,7 +312,7 @@ See `station-content` and `demo-builder` Skills for usage patterns.
 - Loads content from `data/hybit-insights.jsonc`
 - Whitelist-based parameter validation (XSS-safe)
 - Native `<dialog>` element for modals
-- URL parameter pattern: `?hybit=detail`, `?hybit=formats`, etc.
+- URL parameter pattern: `?hybit=jamstack`, `?hybit=eleventy`, etc.
 - See `data/README.md` for complete documentation
 
 **Security features**:

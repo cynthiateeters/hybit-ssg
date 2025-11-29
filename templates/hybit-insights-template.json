@@ -1,6 +1,6 @@
 {
   "allowedParams": [
-    "detail",
+    "learning-lab",
     "stations",
     "station1-param1",
     "station1-param2",
@@ -22,9 +22,9 @@
     "station6-param3"
   ],
   "messages": {
-    "detail": {
-      "title": "🚀 Lighthouse Score: 100%!",
-      "content": "This site is optimized for instant loading with modern web performance techniques. Every page scores 100/100 on accessibility!"
+    "learning-lab": {
+      "title": "🔬 Why a Learning Lab?",
+      "content": "Prof. Teeters taught me that the best way to learn is by doing AND teaching. This Learning Lab documents my entire journey from <strong>\"what's a static site?\"</strong> to <strong>deploying my own blog</strong>. I share my mistakes so you can avoid them, and my breakthroughs so you can celebrate them too!"
     },
     "stations": {
       "title": "🔬 Learning Stations",
@@ -113,8 +113,8 @@
           "label": "Overview of learning stations"
         },
         {
-          "param": "detail",
-          "label": "Performance metrics"
+          "param": "learning-lab",
+          "label": "Why I created this"
         }
       ]
     },
@@ -234,7 +234,7 @@
     },
     "emptyFallback": {
       "title": "🎯 You discovered HAP's insights!",
-      "content": "Hey there! Try adding a parameter like <code>?hybit=detail</code> to see what I've learned!"
+      "content": "Hey there! Try adding a parameter like <code>?hybit=stations</code> to see what I've learned!"
     }
   },
   "_README": {

@@ -14,9 +14,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Only activate if hybit parameter exists
     if (hybitParam !== null) {
-        // Determine base path - go up one level from stations/ to reach data/
-        const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
-        const jsonPath = basePath + '../data/hybit-insights.json';
+        // Determine correct path to data/hybit-insights.json based on page location
+        const pathname = window.location.pathname;
+        const isInStations = pathname.includes('/stations/');
+        const jsonPath = isInStations ? '../data/hybit-insights.json' : 'data/hybit-insights.json';
 
         // Load insights data from JSON
         fetch(jsonPath)
